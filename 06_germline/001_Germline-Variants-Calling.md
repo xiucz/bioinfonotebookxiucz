@@ -76,5 +76,10 @@ The posterior probability of each genotype given the pileup of sequence reads is
 ## Variant filtration (soft)
 ![xx](https://github.com/xiucz/pics/blob/master/2019102710.jpg?raw=true)
 
+### Variant quality score recalibration
++ Variants as points in a cloud can be modeled using a Gaussian mixture model.
++ This model is used to estimate the probability that a variant is a true variant rather than a sequencer error or a data processing artifact.
++ The model is trained on known ‘true sites’.
++ Model parameters are applied to each variant in the input vcf-file and each variant is flagged by a VQSLOD score, which is the log odds ratio of the variant being a true variant versus being a false variant under the trained Gaussian mixture model. 
 ## Annotation
 ![xx](https://github.com/xiucz/pics/blob/master/2019102711.jpg?raw=true)
