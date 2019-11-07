@@ -142,6 +142,10 @@ bedtools merge -i SeqCap_EZ_Exome_v3_hg38_primary_targets.v2.sort.bed > SeqCap_E
 perl -ne 'chomp; @l=split("\t",$_); $size += $l[2]-$l[1]; print "$size\n"' SeqCap_EZ_Exome_v3_hg38_primary_targets.v2.sort.merge.bed
 ```
 
+## output
++ **reference.cnn** is the copy number control used for normalization of test samples.
++ **.cnr** means normalized copy ratios. These are processed test samples, already normalized to the reference.
++ **.cns** means copy number segments. These are the result of segmenting .cnr files, essentially where bins with similar estimated copy number are joined together.
 
 ### 
  --method wgs 选项
@@ -197,4 +201,30 @@ If you want to quantify the reliability of a segment, try the segmetrics command
 https://www.biostars.org/p/266688/
 
 ### 
-1. If you are analyzing tumor samples with some known amount of normal-cell contamination, use "call" or "rescale" first to adjust the log2 ratios for that contamination.
++ segmented log2 ratios 
++ copy-neutral
++  single-copy losses (1) and gains (3), a few multi-copy gains (4) and homozygous deletions (0
++  it merges the consecutive exons that have similar logratios.
++  logratio is LOG[(tumor copynumber)/(normal copynumber),2] 
+
+1.
+2. I recommend "export bed" for custom analysis. If you are analyzing tumor samples with some known amount of normal-cell contamination, use "call" or "rescale" first to adjust the log2 ratios for that contamination.
+3. The ["export vcf"] output conforms to the VCF spec, which is a little unintuitive for describing CNVs. The CN field means absolute copy number, but it's only specified for copy number gains, while hemizygous or homozygous deletions are specified differently, as you're seeing.
+4. If the log2 value close to 0 it could instead just be noise or imperfect centering. But it is true that the neutral value, i.e. cutoff between loss and gain, is zero. In array CGH analysis (which CNVkit mimics) it's common to treat log2 values between +/- 0.2 as effectively neutral copy number, and focus on greater deviations from zero.
+5. The original copy number is the ploidy of your organism, e.g. humans are diploid, 2 copies of each autosome, and the sex chromosomes are XX or XY normally. If you use a flat reference for both tumor and normal, then you can interpret the log2 values as they are. If you used a single normal reference, then you should first check that the normal sample is copy-number-neutral at the location of interest (it probably is) before interpreting the tumor log2 ratio.
+6. If the log2 value close to 0 it could instead just be noise or imperfect centering. But it is true that the neutral value, i.e. cutoff between loss and gain, is zero. In array CGH analysis (which CNVkit mimics) it's common to treat log2 values between +/- 0.2 as effectively neutral copy number, and focus on greater deviations from zero.
+
+For a certain region in the .cns file, the log2 value is 0.382191. In the .vcf file, SVLEN is 6812878 and the CN value is 3. What is the copy number then?
+
+In your example, a log2 value of .38 corresponds to 2^(.38) = 1.3 times the reference ploidy. For a diploid genome, the absolute copy number would be 2 * 2^(.38) = 2.6, which you can probably round up to 3 assuming some reasonable level of normal-cell contamination. (See the documentation on tumor heterogeneity for more guidance on this topic.) ---- https://www.biostars.org/p/178685/
+
+log2 of -9.96578 is equivalent to a tumour-to-normal ratio of:
+
+2^(-9.96578) = 0.00100000296
+
+To find the copy number status of the normal sample, just run the same pipeline on it. If the normal sample was included in the CNV reference (cnv_reference.cnn), you can alternatively run the pipeline on the normal sample using a "flat" reference instead.
+
+### sex chromosome
+Running the "batch" command without the -y flag assumes a female reference, with expected/neutral ploidy of 2 for autosomes, 2 for X, and 1 for Y (for the sake of having a baseline level for comparing male samples). Using this reference, male samples without sex-chromosome abnormalities will have 1 X, 1 Y, so the log2 ratios you'll see are log2(1/2) = -1 for X, log2(1/1) = 0 for Y. A female sample will have log2(2/2) = 0 for X, log2(0/1) = -infinity (in practice, just some noisy deep negative values) for Y.
+
+Rerunning "batch" with the -y flag, the expected ploidies of the sex chromosomes are 1 for X, 1 for Y. With a male reference a normal male sample with have log2(1/1) = 0 for both X and Y; a normal female sample will have log2(2/1) = +1 for X, log2(0/1) = -infinity (very low numbers) for Y. ---- https://www.biostars.org/p/190825/
