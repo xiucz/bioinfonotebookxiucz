@@ -16,3 +16,8 @@ GroupReadsByUmi
 
  CallDuplexConsensusReads CallMolecularConsensusReads
 
+https://stldevs.com/developers/zlskidmore   
+
+
+9. Extracting UMIs within sample index reads during demultiplexing 9
+
