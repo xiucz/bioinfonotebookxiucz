@@ -1,3 +1,12 @@
+## 肿瘤异质性
+1.肿瘤间异质性(intertumour heterogeneity)
+
+2.肿瘤内异质性(intratumour heterogeneity)
+
+3.细胞间异质性(intercellular heterogeneity)
+
+##
+
 https://github.com/bio-ontology-research-group
 
 https://github.com/ChristofferFlensburg/superFreq
@@ -21,3 +30,4 @@ https://stldevs.com/developers/zlskidmore
 
 9. Extracting UMIs within sample index reads during demultiplexing 9
 
+https://www.sciencedirect.com/science/article/pii/S2001037017300946

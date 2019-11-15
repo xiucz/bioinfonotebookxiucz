@@ -79,3 +79,5 @@ http://andrewjesaitis.com/2017/03/the-state-of-variant-annotation-in-2017/
 
 https://chengcz.github.io/2018/201806_HumanGene/
 
+
+https://www.bioinfo-scrounger.com/archives/677/

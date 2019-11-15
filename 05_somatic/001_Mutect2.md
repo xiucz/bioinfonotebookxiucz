@@ -1,3 +1,31 @@
+### workflow
+```
+#GATK 3
+java -jar GenomeAnalysisTK.jar \
+-T MuTect2 \
+-R <reference> \
+-L <region> \
+-I:tumor <tumor.bam> \
+-I:normal <normal.bam> \
+--normal_panel <pon.vcf> \                        
+--cosmic <cosmic.vcf> \
+--dbsnp <dbsnp.vcf> \
+--contamination_fraction_to_filter 0.02 \                   
+-o <mutect_variants.vcf> \
+--output_mode EMIT_VARIANTS_ONLY \
+--disable_auto_index_creation_and_locking_when_reading_rods
+```
+### 参数理解
+GATK Mutect2 官网文档中有关于--cosmic和--dbsnp两个参数的描述：
+
+ >“MuTect2 has the ability to use COSMIC data in conjunction with dbSNP to adjust the threshold for evidence of a variant in the normal. If a variant is present in dbSNP, but not in COSMIC, then more evidence is required from the normal sample to prove the variant is not present in germline.”
+
+```
+```
+### 参数理解
+`--disable-read-filter MateOnSameContigOrNoMappedMateReadFilter`, 禁用此过滤器，目的是为了将配对的read map到不同染色体上的那些reads也纳入考虑，从而使得可供分析的read更多。
+
+
 ### strand bias
 
 
