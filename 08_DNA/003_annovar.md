@@ -1,0 +1,1 @@
+https://pzweuj.github.io/2018/07/27/annovar-clinvar.html
