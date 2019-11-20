@@ -1,3 +1,12 @@
+线粒体 : https://link.springer.com/article/10.1007%2Fs00414-019-02205-y
+
+## bgi数据处理
+本地集群上：
+/lustre/Work/project/3d_genome/BGI_data_segmentation/20191109
+
+
+
+
 https://github.com/zpeng1989/Cancer_Study
 
 https://bioconductor.org/packages/devel/workflows/vignettes/SingscoreAMLMutations/inst/doc/workflow_transcriptional_mut_sig_chinese.html
