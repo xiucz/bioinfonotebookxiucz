@@ -228,3 +228,10 @@ To find the copy number status of the normal sample, just run the same pipeline 
 Running the "batch" command without the -y flag assumes a female reference, with expected/neutral ploidy of 2 for autosomes, 2 for X, and 1 for Y (for the sake of having a baseline level for comparing male samples). Using this reference, male samples without sex-chromosome abnormalities will have 1 X, 1 Y, so the log2 ratios you'll see are log2(1/2) = -1 for X, log2(1/1) = 0 for Y. A female sample will have log2(2/2) = 0 for X, log2(0/1) = -infinity (in practice, just some noisy deep negative values) for Y.
 
 Rerunning "batch" with the -y flag, the expected ploidies of the sex chromosomes are 1 for X, 1 for Y. With a male reference a normal male sample with have log2(1/1) = 0 for both X and Y; a normal female sample will have log2(2/1) = +1 for X, log2(0/1) = -infinity (very low numbers) for Y. ---- https://www.biostars.org/p/190825/
+
+
+## 过滤方法
+1) Set region size
+2) Filter regions according the coverage
+3) Use Bayesian model
+4) Set Rate for filtering CNV

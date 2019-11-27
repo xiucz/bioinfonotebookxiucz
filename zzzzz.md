@@ -1,3 +1,33 @@
+
+
+### 20191122
+鉴别基因组版本
+```
+Identifying reference genome, if not stated, isn't always straightforward. In DanteLabs's case, though, looking at the BAM file headers we have:
+@SQ SN:chrM LN:16571
+
+The 16571 basepair chrM is NC_001807 which UCSC used, but is used by practically nobody nowadays (It's not the same as rCRS or RSRS). Since in mapping reads will align to a location they best match with, changing the reference, even something as simple as the mitochondrial DNA, can cause reads to map differently elsewhere, and labs like to keep things unchanged so the results remain comparable. This one probably should be changed though, but YFull interpreted full mtDNA from the sequence, which is probably easiest option.
+
+```
+
+---
+
+STAR-Fusion --genome_lib_dir $starfusion_lib \
+            --samples_file $sampleId.samples \
+            --output_dir ./STAR-Fusion/ \
+            --FusionInspector validate \
+            --denovo_reconstruct \
+            --examine_coding_effect \
+            --CPU $ncpus \
+            --min_FFPM 1
+
+
+
+https://github.com/ShixiangWang/DoAbsolute
+
+dna rna 整合 https://github.com/griffithlab/regtools
+
+
 线粒体 : https://link.springer.com/article/10.1007%2Fs00414-019-02205-y
 
 ## bgi数据处理
