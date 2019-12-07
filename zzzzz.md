@@ -1,4 +1,52 @@
+### 20191206
+F1-Measure:
+$$F_{A} = $$
 
+其中是参数，P是精确率(Precision)，R是召回率(Recall)。 [1] 
+当参数=1时，就是最常见的F1-Measure了：
+F1=2*RP/(R+P)
+
+
+```
+http://genome.ucsc.edu/cgi-bin/das/hg38/dna?segment=chr1:186318317,186318337
+
+[zhangbo@mu01 fusioncatcher]$ $bedtools getfasta -s -fi $hsa_ref -bed tmp.bedplus  -fo tmp.faplus
+[zhangbo@mu01 fusioncatcher]$ cat tmp.faplus
+>chr1:186318317-186318337(+)
+ACTCTGTCTCAAAAAAAAAA
+```
+
+
+### 20191201
+Targeted method:
+In the targeted fusion detection method, panel primers are designed to target specific exon-exon junctions of fusions where the driver gene, the partner gene, and the breakpoint between the driver and the partner gene are known. The sequencing reads are mapped to a reference file that contains only the known gene fusions.
+
+Non‑targeted method:
+In the non-targeted fusion detection method, the panel primers are used to detect fusions between novel combinations of known diver and partner genes. The sequencing reads are mapped to a broader reference, such as the whole‑exome. Mapping the reads to a broader reference allows for the detection of multiple configurations of driver and partner genes as well as detection of novel breakpoints between the known partner and driver genes.
+
+https://ionreporter.thermofisher.com/ionreporter/help/GUID-F6403251-CB0F-4955-9C2F-637E7C535387.html
+https://ionreporter.thermofisher.com/ionreporter/help/GUID-759AEE0F-3542-4774-AC5E-E630E2A4B1FB.html
+
+
+高级分析 http://www.feiaituan.com/?p=1289
+
+### 20191128
+## cosmic fusion 数据库介绍
+官网地址： 
++   https://cancer.sanger.ac.uk/cosmic/fusion
+内容描述：
++ https://cancer.sanger.ac.uk/cosmic/help/fusion/summary#summary_tab_content
++ https://cancer.sanger.ac.uk/cosmic/help#types_tab_content       
+        
+
+```
+Gene name 1 {Accession number 1 }: r. _ Gene name 2{ Accession number 2 } : r.
+Gene name： 基因的HUGO symbol
+Accession number：Genebank对应的转录本编号
+:：冒号用于区分基因ID和位置信息
+r.：基于RNA水平的位置描述
+_：区分前后两个断点
+```
 
 ### 20191122
 鉴别基因组版本
