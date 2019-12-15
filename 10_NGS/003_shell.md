@@ -1,3 +1,7 @@
+## ack
+## rsync
+## tee
+
 ### 统计fastq中每个读长的counts数
 ```
 直接用awk命令

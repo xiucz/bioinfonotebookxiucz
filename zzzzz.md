@@ -1,3 +1,9 @@
+### 20191213
+shell 获取反向互补序列
+```
+[zhangbo@mu01 heyueqing_PW59-1]$ echo 'GTACATGTCA' |rev|tr "ATCG" "TAGC"
+```
+
 ### 20191206
 F1-Measure:
 $$F_{A} = $$
