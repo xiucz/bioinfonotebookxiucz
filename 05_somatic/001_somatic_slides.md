@@ -56,11 +56,11 @@ $$LOD_{N} > \log_{10}(0.5 \times 10^{-2}) \approx 2.3$$
 
 ---
 
-![xx](https://github.com/xiucz/pics/blob/master/201912062.jng?raw=true)
+![xx](https://github.com/xiucz/pics/blob/master/201912062.png?raw=true)
 
 ---
 
-![xx](https://github.com/xiucz/pics/blob/master/201912063.jng?raw=true)
+![xx](https://github.com/xiucz/pics/blob/master/201912063.png?raw=true)
 
 ---
 
@@ -126,16 +126,29 @@ This filter rejects FPs caused by context-specific sequencing where the vast maj
 In the CALLSTATS output file, the relevant columns are labeled `power_to_detect_negative_strand_artifact` and `t_lod_fstar_forward`. There are also complementary columns labeled `power_to_detect_positive_strand_artifact` and `t_lod_fstar_reverse`.
 
 ---
-
 Filters used in high-confidence mode
 
 4. Clustered Position
 
+该注释是检测体细胞突变位于reads末端的聚集的证据，在命令行加入`--enable_clustered_read_position_filter `参数来开启该注释和过滤。
+
+在给定的体细胞突变位点，
++ MEDIAN_LEFT_OFFSET is the median of the number of bases from the left end of the tumor read to the variant. 
++ MEDIAN_RIGHT_OFFSET is similar, but counts from the right end of the read. 
++ MAD_LEFT_OFFSET and MAD_RIGHT_OFFSET measure the median absolute deviations. The median gives us the offset of a representative read, while the median absolute deviation captures the spread. 
+We filter a variant if MEDIAN_LEFT_OFFSET <= 10 and MAD_LEFT_OFFSET <= 3, or if MEDIAN_RIGHT_OFFSET <= 10 and MAD_RIGHT_OFFSET <= 3.
+
+---
 This filter rejects FPs caused by misalignments evidenced by the alternate alleles being clustered at a consistent distance from the start or end of the read alignment. Candidates are rejected if their median distance from the start/end of the read and median absolute deviation are lower or equal to given thresholds. The position from end of read threshold value is controlled by --pir_median_threshold and the deviation value is controlled by --pir_mad_threshold.
 
 In the CALLSTATS output file, the relevant columns are labeled tumor_alt_fpir_median and tumor_alt_fpir_mad for the forward strand, and complementary columns are labeled tumor_alt_rpir_median and tumor_alt_rpir_mad for the reverse (note the name difference is fpir vs. rpir, for forward vs. reverse position in read).
 
 ---
+
+https://software.broadinstitute.org/gatk/documentation/tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_cancer_ClusteredReadPosition.php
+
+---
+
 Filters used in high-confidence mode
 
 5. Observed in Control
@@ -178,4 +191,24 @@ When the program is evaluating a site, it considers all possible alternate allel
 
 ### bad_haplotype
 Mutect2 emits phasing information for calls in the same assembly region. We assign a “bad haplotype” probability equal to the greatest technical artifact probability of any in-phas call within a certain distance, by default 100 bases.
+
 ---
+
+### germline_risk
+the germline risk is assigned this way
+1. if variants in dbsnp, but not cosmic, the nlod cutoff is 5.5
+2. otherwise, the cutoff is 2.2
+
+MuTect2 default settings initial_tumor_lod=4.0 initial_normal_lod=0.5 tumor_lod=
+6.3 normal_lod=2.2 dbsnp_normal_lod=5.5
+
+---
+
+```
+chr11 123456789 . C A . germline_risk ECNT=1;HCNT=4;MAX_ED=.;MIN_ED=.;NLOD=3.61;TLOD=12.81 GT:AD:AF:ALT_F1R2:ALT_F2R1:FOXOG:QSS:REF_F1R2:REF_F2R1 0/0:13,0:0.00:0:0:.:440,0:10:3 0/1:10,6:0.357:2:4:0.667:336,173:4:6
+```
+
+---
+### str_contraction
+
+It shows that all the mutations marked with str_contraction have only one repeat number difference between reference and allele. Besides, these mutations must locates in the reference STR region with not less than 8bp.
