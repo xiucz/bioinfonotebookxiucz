@@ -1,3 +1,29 @@
+## 方法
+
+### 定义活跃区域
+Mutect2 triages sites for possible somatic variation and determines intervals over which to assemble reads by assigning each site’s read pileup a log odds for somatic activity via a simplified version of the somatic genotyping model, below. A site is considered “active” if its log odds exceed some threshold. Like HaplotypeCaller, Mutect2 chooses for assembly intervals that surround each active site with some margin. The details of this are discussed in the supplemental material.
+### Assembling Haplotypes
+### Somatic Genotyping
+
+### 过滤
+FilterMutectCalls首先估计每个候选突变是体细胞变异的可能性，而不是胚系变异或测序错误等。然后，它选择使估计的F分数最大化的概率阈值（recall和precision的 harmonic mean），并进行相应过滤。错误概率是从几种不同的错误模型中得出的，其中最简单的是硬过滤器，当注释超过某个阈值时，它们会将错误概率分配为1。
++ Hardfilter:
+Error probabilities are derived from several different error models, the simplest of which are hard filters that assign an error probability of 1 when an annotation exceeds some threshold. These include filters for variants with an excess of low-quality supporting bases, poor mapping quality, support coming exclusively near the end of reads, a large mismatch in lengths between variant- and reference-supporting fragments, and local haplotypes with too many variants.
+
++ PON:
++ probabilistic models:
+  + germline model
+  + The normal artifact model
+  + The contamination model
+  + short tandem repeat (STR) model
+  + strand bias and orientation bias artifacts
+
+## Results
+### DREAM Challenge
+### Normal-Normal Calls
+A popular way to measure the false positive rate of somatic variant callers is to assign one normal sample as a “tumor” and a technical replicate of the same sample as the “matched normal.”
+### Normal mixtures
+
 ### workflow
 ```
 #GATK 3

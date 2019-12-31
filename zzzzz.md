@@ -1,3 +1,8 @@
+### 20191230
+the default TLOD filtration cutoff is 6.3:This roughly corresponds to a prior probability of 10^(-6.3) of somatic variants at any given site, which is about right for many tumors. Note however that this argument is obsolete as of GATK 4.1.1.
+
+
+
 ### 20191213
 shell 获取反向互补序列
 ```
