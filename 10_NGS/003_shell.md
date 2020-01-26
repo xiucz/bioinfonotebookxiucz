@@ -20,3 +20,34 @@ ggplot(reads, aes(x=reads$V2, y=reads$V1)) +
 	ylab('counts') + 
 	ggtitle('Read Length Distribution')
 ```
+
+### shell数组
+```
+https://www.cnblogs.com/qdhxhz/p/10902110.html
+
+for i in `ls /local_data1/MED/projects/linzuopeng/shen/bam/*.sorted.bam`
+do
+sample=`basename $i`
+#array=(`echo $str | tr '.' ' '`)
+#array=(${string//,/ })
+
+sample_tmp=
+dir=`dirname $i`
+
+oldIFS=$IFS
+IFS=.
+arr=($sample)
+IFS=$oldIFS
+#for s in ${arr[@]};do;echo "$s";done
+#for i in "${!array[@]}"; do echo "$i：${array[i]}";done
+sample_name=${arr[0]}
+
+echo "/local_data1/work/zhangbo/software/samtools-1.9/samtools view -@ 4 -F 256 -ub $i > $i.tmp.bam \
+&& mkdir -p $dir/$sample_name \
+&& /local_data1/work/zhangbo/software/bamdst/bamdst -p \
+/local_data1/MED/medicine_temp/S07604514_Covered_sorted_merged_hg19.bed \
+-o $dir/$sample_name $i.tmp.bam \
+&& rm -f $i.tmp.bam"
+
+done
+```
