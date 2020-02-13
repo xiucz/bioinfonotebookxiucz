@@ -1,3 +1,15 @@
+## 20200204
+
+
+### 20200120
+FilterMutectCalls:
++ technical artifacts
++ non-somatic
++ sequencing error
+
+
+> strandQ  is the phred-scaled posterior quality of an artifact. In this case a strandQ of 83 means FilterMutectCalls thinks there's a 1 in 10^8.3 chance of a strand artifact.
+
 ### 20200118
 benchmark:
 https://github.com/chapmanb/bcbio-nextgen/tree/master/config/examples

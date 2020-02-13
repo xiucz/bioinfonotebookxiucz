@@ -1,5 +1,7 @@
 [toc]
 
+![xx](https://github.com/xiucz/pics/blob/master/20190204.png?raw=true)
+
 https://www.nejm.org/doi/full/10.1056/NEJMra1705345?query=featured_home&
 
 cell-free DNA是一种存在于外周血中的游离DNA，简称cfDNA。cfDNA的来源主要有两种：一种来源于细胞的凋亡过程，其片段长度在162bp（碱基对）左右；另一种来源于细胞坏死，其片段长度可达10Kbp，甚至更长。这种游离DNA的生存周期为10分钟到若干小时，能够反映个体的部分实时信息。
