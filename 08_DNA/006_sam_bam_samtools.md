@@ -1,15 +1,53 @@
 [toc]
+## samtools 安装
 
 http://www.htslib.org/download/
 ```
-[zhangbo@mu01 software]$ wget -c https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2
-
-[zhangbo@mu01 software]$ tar -jxvf samtools-1.9.tar.bz2 
+#
+wget -c https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2
+tar -jxvf samtools-1.9.tar.bz2 
 ./configure --prefix=/where/to/install
 make
 make install
 export PATH=/where/to/install/bin:$PATH    # for sh or bash users
+#
+mkdir samtools
 
+  git clone https://github.com/samtools/htslib.git
+  cd htslib
+  autoheader
+  autoconf
+  ./configure --prefix=/home/software/samtools/htslib
+  make
+  make install
+  cd ..
+  
+  git clone https://github.com/samtools/bcftools.git
+  cd bcftools
+  autoheader
+  autoconf
+  ./configure --prefix=/home/software/samtools/bcftools
+  make
+  make install
+  cd ..
+  
+  git clone https://github.com/samtools/tabix.git
+  cd tabix
+  make
+  cd ..
+
+  git clone https://github.com/samtools/samtools.git
+  cd samtools
+  autoheader
+  autoconf -Wno-syntax
+  ./configure --prefix=/home/software/samtools/samtools
+  make
+  make install
+  cd ..
+
+安装结束后
+export TOOLDIR=/home/software/samtools
+make BAMTOOLS=/your/path/to/bamtools
 ```
 
 ## bam file visualize
