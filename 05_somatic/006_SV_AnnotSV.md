@@ -1,11 +1,34 @@
 https://lbgi.fr/AnnotSV/
 
+https://lbgi.fr/AnnotSV/Documentation/README.AnnotSV_latest.pdf
+
 ##
 https://lbgi.fr/AnnotSV/annotations
 1. Genes-based annotations:
+   + Gene annotations
+   + DDD gene annotations
+   + OMIM annotations
+   + ACMG annotations
+   + Gene intolerance annotations (ExAC)
+   + Haploinsufficiency annotations (DDD)
+   + Haploinsufficiency and triplosensitivity Scores annotations (ClinGen)
+   + Phenotype-driven analysis extracted from Exomiser
 2. Annotations with features overlapping the SV:
+   + DGV Gold Standard annotations
+   + DDD frequency annotations
+   + 1000 genomes frequency annotations
+   + gnomAD SV frequency annotations
+   + Ira M. Hall’s lab SV frequency annotations
 3. Annotations with features overlapped with the SV:
+   + Promoter annotations
+   + dbVarNR SV pathogenic annotations
+   + TAD boundaries annotations
+   + GeneHancer annotations (not distributed)
 4. Breakpoints annotations:
+   + GC content annotations
+   + Repeated sequences annotations
+5. SV RANKING/CLASSIFICATION
+6. SV Type
 
 
 ### 1. Genes-based annotations:
