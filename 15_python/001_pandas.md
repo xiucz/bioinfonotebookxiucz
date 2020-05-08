@@ -70,7 +70,7 @@ DataFrame的duplicated方法返回一个布尔型Series,表示各行是否重复
 而 drop_duplicates方法，它用于返回一个移除了重复行的DataFrame
 
 
-## 3.2 从python pandas中的列名称检索列索引
+## 3.2 从python 中的列名称检索列索引
 ### 3.2.1. get_loc()
 ```
 df = DataFrame({"pear": [1,2,3], "apple": [2,3,4], "orange": [3,4,5]})
@@ -79,7 +79,7 @@ Out[46]: Index([apple, orange, pear], dtype=object)
 In [47]: df.columns.get_loc("pear")
 Out[47]: 2
 ```
-https://stackoverflow.com/questions/13021654/get-column-index-from-column-name-in-python-pandas
+https://stackoverflow.com/questions/13021654/get-column-index-from-column-name-in-python-
 
 ### 3.2.2. searchsorted() 
 1. You could use np.where, which returns a tuple of row and column indices where your value is present. 
@@ -91,16 +91,16 @@ Or use the method, like so -
 ```
 s.index.searchsorted('D')
 ```
-https://stackoverflow.com/questions/48911071/more-effective-way-to-use-pandas-get-loc
+https://stackoverflow.com/questions/48911071/more-effective-way-to-use--get-loc
 
-https://stackoverflow.com/questions/13021654/get-column-index-from-column-name-in-python-pandas
+https://stackoverflow.com/questions/13021654/get-column-index-from-column-name-in-python-
 
 ## 3.3 检索某字母开头的行
-https://stackoverflow.com/questions/40249152/python-3-pandas-select-dataframe-using-startswith-or
+https://stackoverflow.com/questions/40249152/python-3--select-dataframe-using-startswith-or
 
-https://stackoverflow.com/questions/15325182/how-to-filter-rows-in-pandas-by-regex
+https://stackoverflow.com/questions/15325182/how-to-filter-rows-in--by-regex
 
-https://stackoverflow.com/questions/17071871/select-rows-from-a-dataframe-based-on-values-in-a-column-in-pandas
+https://stackoverflow.com/questions/17071871/select-rows-from-a-dataframe-based-on-values-in-a-column-in-
 
 ## 3.4 读写
 ```
@@ -118,16 +118,16 @@ df.to_csv(r'Z:\temp\test.csv',quoting=1,mode='w',index=False,header=True,encodin
 
 # 4. apply & map
 
-https://stackoverflow.com/questions/40083266/replace-comma-with-dot-pandas
+https://stackoverflow.com/questions/40083266/replace-comma-with-dot-
 
-https://stackoverflow.com/questions/19377969/combine-two-columns-of-text-in-dataframe-in-pandas-python
+https://stackoverflow.com/questions/19377969/combine-two-columns-of-text-in-dataframe-in--python
 
 查看数据类型
 ```
 df.applymap(type)
 ```
 
-## Remap values in pandas column with a dict
+## Remap values in  column with a dict
 ```
 >>> df = pd.DataFrame({'col2': {0: 'a', 1: 2, 2: np.nan}, 'col1': {0: 'w', 1: 1, 2: 2}})
 >>> di = {1: "A", 2: "B"}
@@ -144,12 +144,12 @@ df.applymap(type)
 ```
 or directly on the Series, i.e. df["col1"].replace(di, inplace=True).
 #### Ref_Info
-https://stackoverflow.com/questions/20250771/remap-values-in-pandas-column-with-a-dict
+https://stackoverflow.com/questions/20250771/remap-values-in--column-with-a-dict
 
-## Get top biggest values from each column of the pandas.DataFrame
-Here is my pandas.DataFrame:
+## Get top biggest values from each column of the .DataFrame
+Here is my .DataFrame:
 ```
-import pandas as pd
+import  as pd
 data = pd.DataFrame({
   'first': [40, 32, 56, 12, 89],
   'second': [13, 45, 76, 19, 45],
@@ -180,13 +180,13 @@ pd.DataFrame({c: data[c].nlargest(3).values for c in data})
 ```
 
 
-https://xlsxwriter.readthedocs.io/working_with_pandas.html
+https://xlsxwriter.readthedocs.io/working_with_.html
 
-https://xlsxwriter.readthedocs.io/pandas_examples.html
+https://xlsxwriter.readthedocs.io/_examples.html
 
 ## merge multiple dfs 
-https://stackoverflow.com/questions/44327999/python-pandas-merge-multiple-dataframes/44338256
-https://stackoverflow.com/questions/23668427/pandas-three-way-joining-multiple-dataframes-on-columns
+https://stackoverflow.com/questions/44327999/python--merge-multiple-dataframes/44338256
+https://stackoverflow.com/questions/23668427/-three-way-joining-multiple-dataframes-on-columns
 
 
 设置excel边框 https://mp.weixin.qq.com/s/6hBKbaV3Ygfddi_yvzW75Q
@@ -201,4 +201,15 @@ pd.DataFrame({'col1': ['$46.51', '$38.00', 40],
 0  46.51     1
 1  38.00     2
 2  40.00     3
+```
+
+### 
+```
+#显示所有列
+pd.set_option('display.max_columns', None)
+#显示所有行
+pd.set_option('display.max_rows', None)
+#设置value的显示长度为100，默认为50
+pd.set_option('max_colwidth',100)
+
 ```
