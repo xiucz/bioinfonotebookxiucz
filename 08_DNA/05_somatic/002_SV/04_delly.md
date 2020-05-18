@@ -1,0 +1,10 @@
+https://github.com/dellytools/delly
+
+ If you browse through the vcf file you will notice that a subset of the DELLY structural variant predictions have been refined using split-reads. 
+
+ DELLY clusters abnormal paired-ends and every single cluster gives rise to an IMPRECISE SV call. For every IMPRECISE SV call an attempt is made to identify supporting split-reads/soft-clipped reads DELLY then computes a consensus sequence (INFO:CONSENSUS) out of all split-read candidates and then aligns this consensus sequence to the reference requiring at least -m many aligned bases to the left and right (default is 13). INFO:PE is the number of supporting paired-ends. INFO:CT refers connection types (CT), which indicates the order and orientation of paired-end cluster mappings (e.g. 3to3 for 3’ to 3’ and 5to5 for 5’ to 5’). Values can be 3to5, 5to3, 3to3 or 5to5. Different names exist for these connection types in the literature, head-to-head inversions, tail-to-tail inversions, and so on. The consensus alignment quality (SRQ) is a score between 0 and 1, where 1 indicates 100% identity to the reference. Nearby SNPs, InDels and micro-insertions at the breakpoint can lower this score but only for mis-assemblies it should be very poor. DELLY currently drops consensus alignments with a score <0.8 and then falls back to an IMPRECISE prediction.
+
+SVs are flagged as FILTER:LowQual if PE <3 OR MAPQ <20 (for translocations: PE <5 OR MAPQ <20), otherwise, the SV results in a FILTER:PASS. PRECISE variants will have split-read support (SR >0).
+
+## Somatic Structural Variant Filtering¶
+For a set of confident somatic calls one could exclude all structural variants <400bp, require a minimum variant allele frequency of 10%, no support in the matched normal and an overall confident structural variant site prediction with the VCF filter field being equal to PASS.

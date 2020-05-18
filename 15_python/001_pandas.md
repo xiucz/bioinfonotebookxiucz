@@ -50,6 +50,9 @@ isin返回一个布尔系列，所以要选择值不在some_values的行，使�
 ```
 df.loc[~df['column_name'].isin(some_values)]
 ```
+```
+df.loc[(df['A'] == 'foo') & (df['B'] == 'one')]
+```
 
 ### 2.2.3. 列名里是否包含字符串
 ```

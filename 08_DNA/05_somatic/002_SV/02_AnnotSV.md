@@ -1,6 +1,8 @@
-https://lbgi.fr/AnnotSV/
++ https://lbgi.fr/AnnotSV/
 
-https://lbgi.fr/AnnotSV/Documentation/README.AnnotSV_latest.pdf
++ https://lbgi.fr/AnnotSV/ranking
+
++ https://lbgi.fr/AnnotSV/Documentation/README.AnnotSV_latest.pdf
 
 ##
 https://lbgi.fr/AnnotSV/annotations
