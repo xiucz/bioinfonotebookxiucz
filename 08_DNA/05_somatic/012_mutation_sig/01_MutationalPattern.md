@@ -3,3 +3,11 @@ Mutational Pattern的R包提供了一套易于使用的工具集，用于在肿�
 https://www.jianshu.com/p/1347a0ee74a0
 
 https://bioconductor.org/packages/release/bioc/vignettes/MutationalPatterns/inst/doc/Introduction_to_MutationalPatterns.pdf
+
+## 3.1 Base substitution types
+## 3.2 Mutation spectrum
+突变频谱反映了每种突变在单碱基分类的相对贡献。`plot_spectrum`
+
+## 3.3 96 mutational profile
+
+## 
