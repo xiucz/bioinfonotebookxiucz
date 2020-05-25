@@ -1,10 +1,9 @@
 # 介绍
-https://bitbucket.org/sequenzatools/
 
-+ 说明文档：http://www.cbs.dtu.dk/biotools/sequenza/
-+ 说明文档：https://cran.r-project.org/web/packages/sequenza/
-+ 说明文档：https://sequenza-utils.readthedocs.io/en/latest/
-+ 说明文档：https://sequenzatools.bitbucket.io/#/home
++ 说明文档：http://www.cbs.dtu.dk/biotools//
++ 说明文档：https://cran.r-project.org/web/packages//
++ 说明文档：https://-utils.readthedocs.io/en/latest/
++ 说明文档：https://tools.bitbucket.io/#/home
 
 该软件包括两个部分:
 + a python-based preprocessing tool
@@ -16,36 +15,38 @@ python脚本部分可以分成2个步骤：
 
 
 R包的流程也可以分成3个步骤：
-+ first, sequenza. extract efficiently reads the input file into R, performs GC-content normalization of the tumor versus normal depth ratio, and performs allele-specific segmentation using the ‘copynumber’ package.
-+ Second, **sequenza.fit** applies the model to infer cellularity and ploidy parameters and copy number profiles.
-Finally, sequenza.results returns the results of the estimation together with alternative solutions and visualization of the data and the model along the genome and the individual chromosomes.
++ first, . extract efficiently reads the input file into R, performs GC-content normalization of the tumor versus normal depth ratio, and performs allele-specific segmentation using the ‘copynumber’ package.
++ Second, **.fit** applies the model to infer cellularity and ploidy parameters and copy number profiles.
+Finally, .results returns the results of the estimation together with alternative solutions and visualization of the data and the model along the genome and the individual chromosomes.
 
-https://cran.r-project.org/web/packages/sequenza/vignettes/sequenza.pdf
+https://cran.r-project.org/web/packages//vignettes/.pdf
 
 # 安装
 ```
 source("https://bioconductor.org/biocLite.R")
 biocLite("copynumber")
-install.packages("sequenza")
+install.packages("")
 ```
 
+## Workflow overview
+### Generating a genome-wide GC content file
+```
+/local_data1/work/zhangbo/software/R-3.5.1/library//exec/-utils.py
+−utils.py GC−windows −w 50 hg19.fa | gzip > hg19.gc50Base.txt.gz
+```
+(http://hgdownload-test.cse.ucsc.edu/goldenPath/hg19/gc5Base/).
 
-Workflow overview：
-A typical workflow developed with Sequenza on pre-aligned sequencing files (BAM format) is structured as follows:
+
+
+A typical workflow developed with  on pre-aligned sequencing files (BAM format) is structured as follows:
 Generating pileup files from BAM files
 ```
 samtools mpileup −f hg19.fasta −Q 20 normal.bam | gzip > normal.pileup.gz
 samtools mpileup −f hg19.fasta −Q 20 tumor.bam | gzip > tumor.pileup.gz
 ```
 
-Generating a genome-wide GC content file
-```
-/local_data1/work/zhangbo/software/R-3.5.1/library/sequenza/exec/sequenza-utils.py
-sequenza−utils.py GC−windows −w 50 hg19.fa | gzip > hg19.gc50Base.txt.gz
-```
-(http://hgdownload-test.cse.ucsc.edu/goldenPath/hg19/gc5Base/).
 
-Generate a seqz file
+### Generate a seqz file
 1. Convert pileup to seqz format
 2. Converting VarScan2 output to seqz
 ```
@@ -56,11 +57,13 @@ write.table(seqz.data, "my.sample.seqz", col.names = TRUE, row.names = FALSE, se
 ```
 for exome sequencing, we recommend that you supply varscan.copynumber.
 
-Exploring the seqz file and depth ratio nor-malization details
-1. Quality control
+### Exploring the seqz file and depth ratio nor-malization details
+
+#### 1. Quality control
+
 ```
-library(sequenza)
-data.file <-  system.file("data", "example.seqz.txt.gz", package = "sequenza")
+library()
+data.file <-  system.file("data", "example.seqz.txt.gz", package = "")
 seqz.data <- read.seqz(data.file)
 
 > str(seqz.data)
@@ -80,9 +83,10 @@ seqz.data <- read.seqz(data.file)
  $ AB.tumor       : chr  "A0.1" "G0.1" "C0.1" "." ...
  $ tumor.strand   : chr  "A1.0" "G1.0" "C0.0" "0" ...
 ```
-Each aligned base, in the next generation sequencing, is associated with a quality score. The sequenza-utils.py software is capable of filtering out bases with a quality score lower then a specified value (default, 20). The number of reads that have passed the filter is returned in the column good.reads, while the depth.tumor column contains the raw depth indicated in the pileup.sequenza-utils.py脚本能够过滤掉质量低于20的碱基。在good.reads一列表示了通过过滤条件的reads数目。但是depth.tumor列是包含了原始reads数目。
 
-2. Normalization of depth ratio
+Each aligned base, in the next generation sequencing, is associated with a quality score. The -utils.py software is capable of filtering out bases with a quality score lower then a specified value (default, 20). The number of reads that have passed the filter is returned in the column good.reads, while the depth.tumor column contains the raw depth indicated in the pileup.-utils.py脚本能够过滤掉质量低于20的碱基。在good.reads一列表示了通过过滤条件的reads数目。但是depth.tumor列是包含了原始reads数目。
+
+#### 2. Normalization of depth ratio
 
 We attempt to remove this bias by normalizing with the mean depth ratio value of a corresponding GC content value.
 ```
@@ -104,10 +108,10 @@ hist2(seqz.data$depth.ratio, seqz.data$adjusted.ratio,
 + xlab = 'Uncorrected depth ratio', ylab = 'GC-adjusted depth ratio')
 ```
 
-Analyzing sequencing data with sequenza
+Analyzing sequencing data with 
 Extract the information from the seqz file
 ```
-test <- sequenza.extract(data.file, verbose = FALSE)
+test <- .extract(data.file, verbose = FALSE)
 
 > names(test)
 [1] "BAF"         "ratio"       "mutations"   "segments"    "chromosomes"
@@ -115,10 +119,10 @@ test <- sequenza.extract(data.file, verbose = FALSE)
 ```
 1. Plot chromosome view with mutations, BAF, depth ratio and segments
 2. Inference of cellularity and ploidy
-#sequenza.fit: run grid-search approach to estimate cellularity and ploidy
-CP <- sequenza.fit(test)
-#sequenza.results: write files and plots using suggested or selected solution
-sequenza.results(sequenza.extract = test,
+#.fit: run grid-search approach to estimate cellularity and ploidy
+CP <- .fit(test)
+#.results: write files and plots using suggested or selected solution
+.results(.extract = test,
                  cp.table = CP, sample.id = "Test",
                  out.dir="TEST")
 
