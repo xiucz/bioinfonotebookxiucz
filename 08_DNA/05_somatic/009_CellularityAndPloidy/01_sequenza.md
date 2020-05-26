@@ -85,18 +85,20 @@ seqz.data <- read.seqz(data.file)
 ```
 
 Each aligned base, in the next generation sequencing, is associated with a quality score. The -utils.py software is capable of filtering out bases with a quality score lower then a specified value (default, 20). The number of reads that have passed the filter is returned in the column good.reads, while the depth.tumor column contains the raw depth indicated in the pileup.-utils.py脚本能够过滤掉质量低于20的碱基。在good.reads一列表示了通过过滤条件的reads数目。但是depth.tumor列是包含了原始reads数目。
-
-#### 2. Normalization of depth ratio
+#### 2. Quality control
+#### 3. Normalization of depth ratio
 
 We attempt to remove this bias by normalizing with the mean depth ratio value of a corresponding GC content value.
 ```
 gc.stats <- gc.sample.stats(data.file)
-
+str(gc.stats)
 gc.stats <- gc.norm(x = seqz.data$depth.ratio, gc = seqz.data$GC.percent)
-
+#或者
 gc.vect  <- setNames(gc.stats$raw.mean, gc.stats$gc.values)
 seqz.data$adjusted.ratio <- seqz.data$depth.ratio / gc.vect[as.character(seqz.data$GC.percent)]
-
+```
+图形：
+```
 par(mfrow = c(1,2), cex = 1, las = 1, bty = 'l') 
 
 matplot(gc.stats$gc.values, gc.stats$raw, type = 'b', col = 1, pch = c(1, 19, 1), lty = c(2, 1, 2), xlab = 'GC content (%)', ylab = 'Uncorrected depth ratio')
@@ -108,10 +110,15 @@ hist2(seqz.data$depth.ratio, seqz.data$adjusted.ratio,
 + xlab = 'Uncorrected depth ratio', ylab = 'GC-adjusted depth ratio')
 ```
 
-Analyzing sequencing data with 
-Extract the information from the seqz file
+### Analyzing sequencing data with R
+包括：
++ Extract the relevant information from the raw seqz file.
++ Fit the sequenza model to infer cellularity and ploidy.
++ Apply the inferred parameters to estimate the copy number profile
+
+#### Extract the information from the seqz file
 ```
-test <- .extract(data.file, verbose = FALSE)
+test <- sequenza.extract(data.file, verbose = FALSE)
 
 > names(test)
 [1] "BAF"         "ratio"       "mutations"   "segments"    "chromosomes"
@@ -119,9 +126,9 @@ test <- .extract(data.file, verbose = FALSE)
 ```
 1. Plot chromosome view with mutations, BAF, depth ratio and segments
 2. Inference of cellularity and ploidy
-#.fit: run grid-search approach to estimate cellularity and ploidy
+#### .fit: run grid-search approach to estimate cellularity and ploidy
 CP <- .fit(test)
-#.results: write files and plots using suggested or selected solution
+#### .results: write files and plots using suggested or selected solution
 .results(.extract = test,
                  cp.table = CP, sample.id = "Test",
                  out.dir="TEST")
@@ -129,4 +136,6 @@ CP <- .fit(test)
 3. Allele-specific segmentation using the depth ratio and the B allele frequen- cies (BAFs)
 4. Infer cellularity and ploidy by model fitting 
 5. Call CNV and variant alleles
+
+https://bitbucket.org/sequenzatools/sequenza/src/master/
 
