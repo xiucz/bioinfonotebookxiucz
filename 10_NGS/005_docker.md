@@ -1,17 +1,17 @@
 <!-- @import "[TOC]" {cmd="toc" depthFrom=2 depthTo=3 orderedList=false} -->
 
-[toc]
-
 https://github.com/guoshijiang/-virtual-technology
 
 ## 概念
  包括三个基本概念:
 
-镜像（Image）： 镜像（Image），就相当于是一个 root 文件系统。比如官方镜像 ubuntu:16.04 就包含了完整的一套 Ubuntu16.04 最小系统的 root 文件系统。
-容器（Container）：镜像（Image）和容器（Container）的关系，就像是面向对象程序设计中的类和实例一样，镜像是静态的定义，容器是镜像运行时的实体。容器可以被创建、启动、停止、删除、暂停等。
-仓库（Repository）：仓库可看着一个代码控制中心，用来保存镜像。
+> 镜像（Image）： 镜像（Image），就相当于是一个 root 文件系统。比如官方镜像 ubuntu:16.04 就包含了完整的一套 Ubuntu16.04 最小系统的 root 文件系统。
 
-+ -ce
+> 容器（Container）：镜像（Image）和容器（Container）的关系，就像是面向对象程序设计中的类和实例一样，镜像是静态的定义，容器是镜像运行时的实体。容器可以被创建、启动、停止、删除、暂停等。
+
+> 仓库（Repository）：仓库可看着一个代码控制中心，用来保存镜像。
+
++ ce
 + EE
 ## 基础信息
 ```
@@ -34,21 +34,21 @@ https://github.com/guoshijiang/-virtual-technology
  run hello-world 运行镜像
 
 #复制容器内容到物理机
-docker  cp  testIpMap:/testData    / 
+  cp  testIpMap:/testData    / 
 注：将容器testIpMap的/目录下的testData文件夹复制到物理机的 / 目录下
 
 #复制物理机内容到容器
-docker  cp  物理机目录    容器名：容器目录
+  cp  物理机目录    容器名：容器目录
 
 ```
 ## 容器使用
 
 ### 在容器内运行应用程序
 ```
-$ docker  run -t -i ubuntu:15.10 /bin/echo "Hello world"
+$   run -t -i ubuntu:15.10 /bin/echo "Hello world"
 
 #:  的二进制执行文件。
-#run: 与前面的docker组合来运行一个容器。
+#run: 与前面的组合来运行一个容器。
 #ubuntu:15.10 指定要运行的image，首先从本地主机上查找镜像是否存在，如果不存在， 就会从镜像仓库  Hub 下载公共镜像。**REPOSITORY:TAG**
 # /bin/echo "Hello world": 在启动的容器里执行的命令
 
@@ -76,3 +76,20 @@ rmi hello-world
 ```
 
 https://mp.weixin.qq.com/s?__biz=MzUzMTEwODk0Ng==&mid=2247490244&idx=1&sn=f42a566710fa68ebd92b7d350359314e&chksm=fa46dff9cd3156ef7b4cd7d151cbcfc61518c00a10056ed4377ddd6c50858c7f99fb4eb2d3e7&scene=21#wechat_redirect
+
+
+## 
+```{bash}
+$ docker pull polyactis/accurity
+$ docker images
+#Log into the docker image, without mounting. Useful just to look inside the docker.
+$ docker run -i -t polyactis/accurity /bin/bash
+# Log into the docker image.
+# Mount /home/mydata, which contains your bam files and the reference data, to /mnt inside the docker
+$ docker run -i -t -v /home/mydata:/mnt polyactis/accurity /bin/bash
+```
+
+## 问题故障
+#### mage is being used by stopped container
+
+https://stackoverflow.com/questions/51188657/image-is-being-used-by-stopped-container

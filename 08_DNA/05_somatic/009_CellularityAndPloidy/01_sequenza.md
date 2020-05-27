@@ -1,9 +1,8 @@
 # 介绍
 
-+ 说明文档：http://www.cbs.dtu.dk/biotools//
-+ 说明文档：https://cran.r-project.org/web/packages//
-+ 说明文档：https://-utils.readthedocs.io/en/latest/
-+ 说明文档：https://tools.bitbucket.io/#/home
++ 说明文档：https://cran.r-project.org/web/packages/sequenza/vignettes/sequenza.html
++ 说明文档：https://bitbucket.org/sequenzatools/sequenza/src/master/
+
 
 该软件包括两个部分:
 + a python-based preprocessing tool
@@ -116,7 +115,7 @@ hist2(seqz.data$depth.ratio, seqz.data$adjusted.ratio,
 + Fit the sequenza model to infer cellularity and ploidy.
 + Apply the inferred parameters to estimate the copy number profile
 
-#### Extract the information from the seqz file
+#### .extract: extract the information from the seqz file
 ```
 test <- sequenza.extract(data.file, verbose = FALSE)
 
@@ -137,5 +136,10 @@ CP <- .fit(test)
 4. Infer cellularity and ploidy by model fitting 
 5. Call CNV and variant alleles
 
-https://bitbucket.org/sequenzatools/sequenza/src/master/
 
+# 结果说明
+![](../003_CNV/pics/20200526.png)
+This file contains three “pages” of copy number events through the entire genomic block.
++ The first page shows copy numbers of the A (red) and B (blue) alleles,
++ The second page shows overall copy number changes, and
++ The third page shows the B allele frequency and depth ratio through genomic block.

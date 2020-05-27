@@ -1,5 +1,53 @@
+https://rdrr.io/category/biocview/CopyNumberVariation/
 
-<!-- TOC -->autoauto- [对于cnv分析的几点思考：](#对于cnv分析的几点思考)auto        - [过滤](#过滤)auto        - [鉴定断裂点](#鉴定断裂点)auto- [肿瘤拷贝数数据中的异方差校正](#肿瘤拷贝数数据中的异方差校正)auto- [Aneuploidy非整倍体](#aneuploidy非整倍体)autoauto<!-- /TOC -->
+# 历史背景
+Technologies for CNV Detection
++ Giemsa staining
++ Fluorescent in situ hybridization (FISH) - 荧光原位杂交
++ Comparative genomic hybridization (CGH) - 比较基因组杂交
+  它能产生全基因组中染色体上DNA序列拷贝数图谱，使用两种不同的荧光将癌症组织样本和正常组织样本的DNA进行标记制成探针后，再同时与正常的分裂中期染色体进行杂交，通过检测染色体上不同区域的两种荧光的强度比，来发现DNA序列扩增或者丢失的区域。CGH技术具有：使用DNA样本量少，检测基因组拷贝数变化只需一次杂交，既能对活细胞或组织也能对存档组织进行研究的优点。但是，它所能检测到的DNA序列扩增或丢失的大小为3-5Mb，因此对于低水平的DNA扩增和小片段丢失，会发生漏检。
++ array CGH，aCGH - 微阵列比较基因组杂交技术[10]。
+  与CGH技术相比，aCGH使用微阵列代替CGH技术中的中期分裂相的染色体，使用带有不同荧光标记的测试DNA探针，以DNA探针为模板，竞争性地与微阵列的靶序列进行杂交。与CGH技术相比，它具有两方面的明显优势：（1）灵敏度和准确性较高。染色体上DNA以高密集度和超螺旋的形式存在，而aCGH技术避开了复杂的染色体结构，所使用的靶序列为少数基因的DNA片段。因此与CGH技术相比，aCGH技术能找出那些无法检测出的拷贝数差异，而且能对扩增或缺失的位置进行精准地定位。（2）自动化和程序化。aCGH技术与普通的基因芯片检测表达谱的流程一样，可以使用机器和计算机自动操作，快速且省时省力。
++ 单核苷酸多态性微阵列技术 （single nucleotide polymorphism arrays，SNP arrays）[11]。
+  它通过检测杂合性丢失（loss of heterozygosity，LOH）来检测基因组片段的扩增和缺失。
++ 深度测序技术[12]。
+  使用深度测序技术产生的数据来检测拷贝数变异是近年来飞速发展的新领域。拷贝数变异检测的精确度和分辨率随着测序深度的增加而提高，可以获得更加准确的拷贝数变异的断点位置，并且能够检测基于芯片方法所不能检测的插入和倒位等基因组变异形式。由于深度测序技术不需要探针，能以单碱基分辨率在全基因组范围内检测拷贝数变异，因而可以显著提高拷贝数变异的检出数。
++ Spectral karyotyping (SKY)
++ SNP genotyping arrays
+
+# 名词
+## LRR
+> **LRR** is a measure of normalized total signal intensity.
+> **BAF** is a measure of normalized allelic intensity ratio.
+```
+BAF = Y / (X + Y)
+LRR = log2( (X + Y)sampleOfInterest / (X+Y)baselineSample)
+```
+The combination of LRR and BAF can be used together to determine different copy numbers and to differentiate copy-neutral LOH regions from normal copy regions.
+
+![](pics/20200525_2.png)
+![](pics/20200525.png)
+
+# 算法
+## segmentation
+### segmentation algorithms
+1) The univariate method, which considers only one sample at a time, is ideal for detecting rare and/or large CNVs. 
+2) The multivariate method, which simultaneously considers all subjects, is ideal for detecting small, common CNVs. Some CNV detection algorithms also assign actual copy number calls (0,1,2,3…) for a segment based on thresholds of LR segment means, though there are some reasons why this is problematic (see CNV Analysis Tips for Illumina Data).
+
+
+
+
+
+---
+
+
+<!-- TOC -->
+auto- [对于cnv分析的几点思考：](#对于cnv分析的几点思考)
+auto        - [过滤](#过滤)
+auto        - [鉴定断裂点](#鉴定断裂点)
+auto- [肿瘤拷贝数数据中的异方差校正](#肿瘤拷贝数数据中的异方差校正)
+auto- [Aneuploidy非整倍体](#aneuploidy非整倍体)autoauto
+<!-- /TOC -->
 
 
 + Copy number alterations/aberrations (CNAs)
