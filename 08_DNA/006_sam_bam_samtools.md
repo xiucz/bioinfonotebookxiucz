@@ -1,52 +1,52 @@
 [toc]
-## samtools 安装
+##  安装
 
 http://www.htslib.org/download/
 ```
 #
-wget -c https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2
-tar -jxvf samtools-1.9.tar.bz2 
+wget -c https://github.com///releases/download/1.9/-1.9.tar.bz2
+tar -jxvf -1.9.tar.bz2 
 ./configure --prefix=/where/to/install
 make
 make install
 export PATH=/where/to/install/bin:$PATH    # for sh or bash users
 #
-mkdir samtools
+mkdir 
 
-  git clone https://github.com/samtools/htslib.git
+  git clone https://github.com//htslib.git
   cd htslib
   autoheader
   autoconf
-  ./configure --prefix=/home/software/samtools/htslib
+  ./configure --prefix=/home/software//htslib
   make
   make install
   cd ..
   
-  git clone https://github.com/samtools/bcftools.git
+  git clone https://github.com//bcftools.git
   cd bcftools
   autoheader
   autoconf
-  ./configure --prefix=/home/software/samtools/bcftools
+  ./configure --prefix=/home/software//bcftools
   make
   make install
   cd ..
   
-  git clone https://github.com/samtools/tabix.git
+  git clone https://github.com//tabix.git
   cd tabix
   make
   cd ..
 
-  git clone https://github.com/samtools/samtools.git
-  cd samtools
+  git clone https://github.com//.git
+  cd 
   autoheader
   autoconf -Wno-syntax
-  ./configure --prefix=/home/software/samtools/samtools
+  ./configure --prefix=/home/software//
   make
   make install
   cd ..
 
 安装结束后
-export TOOLDIR=/home/software/samtools
+export TOOLDIR=/home/software/
 make BAMTOOLS=/your/path/to/bamtools
 ```
 
@@ -57,7 +57,7 @@ https://blog.csdn.net/tanzuozhev/article/details/80854579
 
 
 ### sam文件格式sam格式的定义：
-https://samtools.github.io/hts-specs/SAMv1.pdf
+https://.github.io/hts-specs/SAMv1.pdf
 http://broadinstitute.github.io/picard/explain-flags.html
  1. 第3和第7列，可以用来判断某条reads是否比对成功到了基因组的染色体，左右两条reads是否比对到同一条染色体。
 而第1，10，11列可以提取出来还原成我们的测序数据fastq格式的。
@@ -87,17 +87,17 @@ XF	Support from forward/reverse alignment
 XE	Number of supporting seeds
 ```
 
-## samtools
+## 
 #### 对fasta文件建立索引
 ```
-samtools faidx ref_genome.fasta
+ faidx ref_genome.fasta
 
 提取子序列
-samtools faidx ref_genome.fasta scffold_10 > scaffold_10.fasta
+ faidx ref_genome.fasta scffold_10 > scaffold_10.fasta
 ```
 #### sam文件<=>bam文件
 ```bash
-samtools view -h sample.bam > sample.sam samtools view -bS sample.sam > sample.bam
+ view -h sample.bam > sample.sam  view -bS sample.sam > sample.bam
 ```
 #### view
 ```
@@ -116,68 +116,68 @@ samtools view -h sample.bam > sample.sam samtools view -bS sample.sam > sample.b
 
 ```bash
 1)提取没有比对到参考序列上的比对结果
-samtools view -bf 4 abc.bam > abc.f.bam
+ view -bf 4 abc.bam > abc.f.bam
 
 2)提取比对到参考序列上的比对结果
-samtools view -bF 4 abc.bam > abc.F.bam
+ view -bF 4 abc.bam > abc.F.bam
 
 3)提取paired reads中两条reads都比对到参考序列上的比对结果，只需要把两个4+8的值12作为过滤参数即可
-samtools view -bF 12 abc.bam > abc.F12.bam
+ view -bF 12 abc.bam > abc.F12.bam
 
 4)提取bam文件中比对到caffold1上的比对结果，并保存到sam文件格式
-samtools view abc.bam scaffold1 > scaffold1.sam
+ view abc.bam scaffold1 > scaffold1.sam
 
 5)提取scaffold1上能比对到30k到100k区域的比对结果
-samtools view abc.bam scaffold1:30000-100000 > scaffold1_30k-100k.sam
+ view abc.bam scaffold1:30000-100000 > scaffold1_30k-100k.sam
 
 6)根据fasta文件，将 header 加入到 sam 或 bam 文件中
-samtools view -T genome.fasta -h scaffold1.sam > scaffold1.h.sam
+ view -T genome.fasta -h scaffold1.sam > scaffold1.h.sam
 
 7)查看bwa比对结果中比对上基因组的unique mapped reads
-samtools view xx.bam |grep "XT：A：U" | wc -l
+ view xx.bam |grep "XT：A：U" | wc -l
 
-8)samtools idxstats选项输出记录由tab分隔，其中第1列为参考序列ID(染色体号)，第二列为参考序列长度，第三列为mapped reads数，第四列为unmapped reads数
+8) idxstats选项输出记录由tab分隔，其中第1列为参考序列ID(染色体号)，第二列为参考序列长度，第三列为mapped reads数，第四列为unmapped reads数
 
 9)快速计算一个bam文件的reads数
-samtools idxstats in.bam|awk "{s+=$3+$4}’END{print s}"
+ idxstats in.bam|awk "{s+=$3+$4}’END{print s}"
 
 10)Subsample BAM file
-samtools view -s 0.5 test.bam > test_hafl_random.bam
+ view -s 0.5 test.bam > test_hafl_random.bam
 
 11)bam2fastq
 bam2fastq工具链接：http://www.hudsonalpha.org/gsl/software/bam2fastq.php
 
 12）
-samtools views -c 计算的是alignments数目，而不是reads数目，一条reads可以比对到多个位置
+ views -c 计算的是alignments数目，而不是reads数目，一条reads可以比对到多个位置
 
 13）提取某个染色体
-samtools view -h  control_1.sort.bam   "chr17:40437407-40486397"  |samtools view -bS - >RNA-seq.bam
+ view -h  control_1.sort.bam   "chr17:40437407-40486397"  | view -bS - >RNA-seq.bam
 
 ```
 
 ```bash
 想知道有多少paired end reads有mate并且都有map时，可以使用-f 1 -F 12来过滤
-samtools view -c -f 1 -F 12 test.bam
+ view -c -f 1 -F 12 test.bam
 其中-f 1指定只包含那些paired end reads，-F 12是不包含那些unmapped(flag 0×0004)以及mate是unmapped(flag 0×0008)。0×0004 + 0×0008 = 12.
 ```
 测序数据的双端的，那么sam文件的第3列是reads1的比对情况，第6列是reads2的比对情况。所以未比对成功的测序数据可以分成3类，仅reads1，仅reads2，和两端reads都没有比对成功。
 也可以用下面的代码分步提取这3类未比对成功的reads:
 ```
-samtools view -u  -f 4 -F264 alignments.bam  > tmps1.bam
-samtools view -u -f 8 -F 260 alignments.bam  > tmps2.bam
-samtools view -u -f 12 -F 256 alignments.bam > tmps3.bam
-samtools merge -u - tmps[123].bam | samtools sort -n - unmapped
+ view -u  -f 4 -F264 alignments.bam  > tmps1.bam
+ view -u -f 8 -F 260 alignments.bam  > tmps2.bam
+ view -u -f 12 -F 256 alignments.bam > tmps3.bam
+ merge -u - tmps[123].bam |  sort -n - unmapped
 bamToFastq -bam unmapped.bam -fq1 unmapped_reads1.fastq -fq2 unmapped_reads2.fastq
 ```
 ```bash
-samtools view sample_sorted.bam chr1:1234-123456
-samtools flagstat sample_sorted.bam
+ view sample_sorted.bam chr1:1234-123456
+ flagstat sample_sorted.bam
 ```
 
 #### sort
 ```bash
-samtools sort sample.bam sort_default
-samtools sort -n sample.bam sort_left
+ sort sample.bam sort_default
+ sort -n sample.bam sort_left
 ```
 Sort alignments by leftmost coordinates, or by read name when -n is used.  默认按照染色体位置进行排序，而-n参数则是根据read名进行排序。
 
@@ -187,7 +187,7 @@ https://www.biostars.org/p/102735/
 #### flagstat
 ```
 #Version: 1.3
-samtools flagstat example.bam
+ flagstat example.bam
 14367369 + 0 in total (QC-passed reads + QC-failed reads) #总共的reads数
 26939 + 0 secondary
 0 + 0 supplementary
@@ -235,7 +235,7 @@ mapping ratio: 1 - 644240*1/5421701*2
 ```
 
 ```
-[0] samtools flagstat plus01791.bam
+[0]  flagstat plus01791.bam
 
 [1] 33037592 + 0 in total (QC-passed reads + QC-failed reads)
 [2] 0 + 0 secondary
@@ -273,16 +273,16 @@ mapping ratio: 1 - 644240*1/5421701*2
 [28] plus01791 33037592 31144385 29382646 1761739 27514012 1704233
 ```
 **TIPS:**
-[1]: 'total' is the total number of alignments (lines in the sam file), not total reads.'total' is the total number of alignments (lines in the [sam](http://samtools.sourceforge.net/SAM1.pdf) file), not total reads.
+[1]: 'total' is the total number of alignments (lines in the sam file), not total reads.'total' is the total number of alignments (lines in the [sam](http://.sourceforge.net/SAM1.pdf) file), not total reads.
 [9]:"Properly paired" means both mates of a read pair map to the same chromosome, oriented towards each other, and with a sensible insert size.
 
 #### Ref_Info
 https://www.biostars.org/p/12475/
 
 ```
-samtools view -@ 8 -bF 1024 过滤PCR扩增的接头序列
-samtools view -bF 256 计算mappingratio的时候，因为是因为mem算法比对，需要先过滤打断比对的reads
-samtools view -@ 8 -f 1 -F 12 提取paired mapped reads
+ view -@ 8 -bF 1024 过滤PCR扩增的接头序列
+ view -bF 256 计算mappingratio的时候，因为是因为mem算法比对，需要先过滤打断比对的reads
+ view -@ 8 -f 1 -F 12 提取paired mapped reads
 ```
 
 ## Concept
@@ -292,7 +292,7 @@ samtools view -@ 8 -f 1 -F 12 提取paired mapped reads
 + **1.2.** Also note that chimeric reads are not the same as chimeric genes. In RNA-seq chimeric reads may indicate the presence of chimeric genes but for DNA-seq they often are evidence for structural variation without necessarily being evidence for chimeric gene/transcript events.
 + **1.3.** In RNA-seq chimeric reads may indicate the presence of circRNAs
 ```
-samtools view my_alignment.bam | grep 'SA:' | less
+ view my_alignment.bam | grep 'SA:' | less
 ```
 
 **2.** **soft-clip reads**
@@ -361,7 +361,7 @@ Example of extended CIGAR and the pileup output.
 
 + (b) The corresponding SAM file. The ‘@SQ’ line in the header section gives the order of reference sequences. Notably, r001 is the name of a read pair. According to FLAG 163 (=1 + 2 + 32 + 128), the read mapped to position 7 is the second read in the pair (128) and regarded as properly paired (1 + 2); its mate is mapped to 37 on the reverse strand (32). Read r002 has three soft-clipped (unaligned) bases. The coordinate shown in SAM is the position of the first aligned base. The CIGAR string for this alignment contains a P (padding) operation which correctly aligns the inserted sequences. Padding operations can be absent when an aligner does not support multiple sequence alignment. The last six bases of read r003 map to position 9, and the first five to position 29 on the reverse strand. The hard clipping operation H indicates that the clipped sequence is not present in the sequence field. The NM tag gives the number of mismatches. Read r004 is aligned across an intron, indicated by the N operation.
 
-+ (c) Simplified pileup output by SAMtools. Each line consists of reference name, sorted coordinate, reference base, the number of reads covering the position and read bases. In the fifth field, a dot or a comma denotes a base identical to the reference; a dot or a capital letter denotes a base from a read mapped on the forward strand, while a comma or a lowercase letter on the reverse strand.
++ (c) Simplified pileup output by . Each line consists of reference name, sorted coordinate, reference base, the number of reads covering the position and read bases. In the fifth field, a dot or a comma denotes a base identical to the reference; a dot or a capital letter denotes a base from a read mapped on the forward strand, while a comma or a lowercase letter on the reverse strand.
 
 clipped alignment因为着在比对过程中，并没有用到全部的read的序列，read两段的序列被截取了（clip or trim）。如下表示，即为clip alignment。
 
@@ -384,7 +384,7 @@ BWA提到If the read has a chimeric alignment, the paired or the top hit uses so
 
 如果是hard clip，则截取的部分不会在SAM文件对应的read中出现 (clipped sequences not present in SEQ)，如果是soft clip (clipped sequences present in SEQ)，则会出现。
 
-You'll note that the soft-clipped region isn't used in the `samtools depth/ samtools mpileup` # https://bioinformatics.stackexchange.com/questions/157/are-soft-clipped-bases-used-for-variant-calling-in-samtools-bcftools
+You'll note that the soft-clipped region isn't used in the ` depth/  mpileup` # https://bioinformatics.stackexchange.com/questions/157/are-soft-clipped-bases-used-for-variant-calling-in--bcftools
 
 #### Ref_Info
 https://www.biostars.org/p/109333/
@@ -402,8 +402,8 @@ with option -M it is flagged as a duplicate flag=256 ( not primary alignment ): 
 using option -M it says the read to be secondary alignment(not primary alignment) whereas without -M option it gives as supplementary alignment(2048).
 
 ## 深入理解bam
-How samtools calculate error rate：
-samtools adds up the number of mismatches (from the NM auxiliary tag) and divides that by the number of aligned bases. Soft and hard-clipped bases wouldn't be included, since they aren't aligned.
+How  calculate error rate：
+ adds up the number of mismatches (from the NM auxiliary tag) and divides that by the number of aligned bases. Soft and hard-clipped bases wouldn't be included, since they aren't aligned.
 
 
 #### Ref_Info
@@ -418,12 +418,12 @@ http://mp.weixin.qq.com/s/WG0KLWPCzTyKheUMRbJlfA
 ## TOdolist
 https://bioinf.comav.upv.es/courses/sequence_analysis/mapping.html
 
-http://tiramisutes.github.io/2016/03/20/Samtools.html
+http://tiramisutes.github.io/2016/03/20/.html
 
 ![image](https://raw.githubusercontent.com/xiucz/pics/master/26AD9DC95EB35B8A201EA33440FBD96E.png)
 
 #
-http://genomespot.blogspot.com/2015/03/sambamba-vs-samtools.html
+http://genomespot.blogspot.com/2015/03/sambamba-vs-.html
 
 ```
 In fact, it is implemented in that you can use /dev/stdin and /dev/stdout, it's just that - is not currently recognized as a special filename.
@@ -432,7 +432,7 @@ I have an idea of adding -F option to other tools, at least in this particular c
 
 ## mpileup
 ```
-samtools mpileup -f [ref_fasta] [bam] -r [chr:start-end] > mpileupfile
+ mpileup -f [ref_fasta] [bam] -r [chr:start-end] > mpileupfile
 ```
 在此列上，
 + “.”表示与正链上的参考碱基匹配，
@@ -452,7 +452,20 @@ For a biallelic site, the PL has three numbers, The first one is the probability
 
 
 # 
-## samtools和picard的排序问题
-samtools和picard都有对SAM/BAM文件进行排序的功能，一般都是基于坐标排序（还提供了-n选项来设定用reads名进行排序），先是对chromosome/contig进行排序，再在chromosome/contig内部基于start-site从小到大排序，对startsite排序很好理解，可是对chromosome/contig排序的时候是基于什么标准呢？
+## 和picard的排序问题
+和picard都有对SAM/BAM文件进行排序的功能，一般都是基于坐标排序（还提供了-n选项来设定用reads名进行排序），先是对chromosome/contig进行排序，再在chromosome/contig内部基于start-site从小到大排序，对startsite排序很好理解，可是对chromosome/contig排序的时候是基于什么标准呢？
 
 基于你提供的ref.fa文件中的chromosome/contig的顺序。
+
+## samtools tview
+```
+“.” 比对到正链;
+“，” 表示比对到负链;
+“<”或“>” 表示reference skip   RNA-seq当中内含子剪切;
+"ATCGN"  表示正向mismatch;
+"atcgn"  表示反向mismatch;
+‘+[0-9]+[ACGTNacgtn]+’ insertion;
+‘-[0-9]+[ACGTNacgtn]+’ 表示deletion;
+“^”标记reads起始;
+“$”标记reads segment结尾;
+```
