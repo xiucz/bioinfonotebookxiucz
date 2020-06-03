@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+        <title>001 Notes on Mutect2 - My Docs</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../../.." class="nav-link">Welcome to MkDocs</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../../000_todolist/" class="nav-link">000 todolist</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../../bookmark/" class="nav-link">Bookmark</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../../zzzzz/" class="nav-link">Zzzzz</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../../%E5%8D%95%E8%AF%8D/" class="nav-link">单词</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../../%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/" class="nav-link">工作记录</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">00  <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../00_/000_%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84/" class="dropdown-item">000 基因结构</a>
+</li>
+                                    
+<li>
+    <a href="../../../../00_/001_%20CombineVariants/" class="dropdown-item">001  CombineVariants</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">01 database <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../01_database/00/" class="dropdown-item">00</a>
+</li>
+                                    
+<li>
+    <a href="../../../../01_database/01_annovar/" class="dropdown-item">01 annovar</a>
+</li>
+                                    
+<li>
+    <a href="../../../../01_database/01_ensemble/" class="dropdown-item">01 ensemble</a>
+</li>
+                                    
+<li>
+    <a href="../../../../01_database/01_vep/" class="dropdown-item">01 vep</a>
+</li>
+                                    
+<li>
+    <a href="../../../../01_database/02_datasets/" class="dropdown-item">02 datasets</a>
+</li>
+                                    
+<li>
+    <a href="../../../../01_database/03_dbNSFP/" class="dropdown-item">03 dbNSFP</a>
+</li>
+                                    
+<li>
+    <a href="../../../../01_database/04_dbSNP/" class="dropdown-item">04 dbSNP</a>
+</li>
+                                    
+<li>
+    <a href="../../../../01_database/05_MalaCards/" class="dropdown-item">05 MalaCards</a>
+</li>
+                                    
+<li>
+    <a href="../../../../01_database/06_revel/" class="dropdown-item">06 revel</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Pic</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../01_database/pic/readme/" class="dropdown-item">Readme</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">02 course <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../02_course/01_%E7%94%9F%E4%BF%A1%E8%B5%84%E6%BA%90%E8%AF%BE/" class="dropdown-item">01 生信资源课</a>
+</li>
+                                    
+<li>
+    <a href="../../../../02_course/02_%E6%B5%8B%E5%BA%8F%E5%8E%9F%E7%90%86/" class="dropdown-item">02 测序原理</a>
+</li>
+                                    
+<li>
+    <a href="../../../../02_course/Agilent_SureSelect/" class="dropdown-item">Agilent SureSelect</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">04 linuxshell <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../04_linuxshell/0/" class="dropdown-item">0</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">07 microbe <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../07_microbe/00_%E7%BB%BC%E8%BF%B0/" class="dropdown-item">00 综述</a>
+</li>
+                                    
+<li>
+    <a href="../../../../07_microbe/01_%E6%8B%BC%E6%8E%A5%E7%BB%84%E8%A3%85/" class="dropdown-item">IDBA-UD：用于深度非常不均匀的单细胞和宏基因组测序数据的组装软件</a>
+</li>
+                                    
+<li>
+    <a href="../../../../07_microbe/02_%E5%AE%8F%E7%97%85%E6%AF%92%E7%BB%84/" class="dropdown-item">02 宏病毒组</a>
+</li>
+                                    
+<li>
+    <a href="../../../../07_microbe/03_nCov19%E8%B5%84%E6%BA%90/" class="dropdown-item">03 nCov19资源</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">08 DNA <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../002_BAF/" class="dropdown-item">002 BAF</a>
+</li>
+                                    
+<li>
+    <a href="../../../003_VEP/" class="dropdown-item">003 VEP</a>
+</li>
+                                    
+<li>
+    <a href="../../../003_annovar/" class="dropdown-item">003 annovar</a>
+</li>
+                                    
+<li>
+    <a href="../../../004_benchmark-datasets/" class="dropdown-item">数据集</a>
+</li>
+                                    
+<li>
+    <a href="../../../006_sam_bam_samtools/" class="dropdown-item">006 sam bam samtools</a>
+</li>
+                                    
+<li>
+    <a href="../../../01_HGVS/" class="dropdown-item">01 HGVS</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">001 NIPT</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../001_NIPT/00/" class="dropdown-item">00</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">004 TCGA</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../004_TCGA/00/" class="dropdown-item">00</a>
+</li>
+            
+<li>
+    <a href="../../../004_TCGA/01_%E7%BB%93%E7%9B%B4%E8%82%A0%E7%99%8C/" class="dropdown-item">01 结直肠癌</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">05 somatic</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../001_Mutect2/" class="dropdown-item">001 Mutect2</a>
+</li>
+            
+<li>
+    <a href="../../007_Tumor-Heterogeneity-Analysis/" class="dropdown-item">007 Tumor Heterogeneity Analysis</a>
+</li>
+            
+<li>
+    <a href="../../008_cfdna/" class="dropdown-item">008 cfdna</a>
+</li>
+            
+<li>
+    <a href="../../008_cfdna_paper/" class="dropdown-item">https://github.com/dkleftogi/cfDNA_AnalysisPipeline</a>
+</li>
+            
+<li>
+    <a href="../../009_MSI/" class="dropdown-item">009 MSI</a>
+</li>
+            
+<li>
+    <a href="../../009_MSI_paper/" class="dropdown-item">009 MSI paper</a>
+</li>
+            
+<li>
+    <a href="../../009_%E4%B8%B2%E8%81%94%E9%87%8D%E5%A4%8D%E5%BA%8F%E5%88%97/" class="dropdown-item">009 串联重复序列</a>
+</li>
+            
+<li>
+    <a href="../../010_drivergene/" class="dropdown-item">010 drivergene</a>
+</li>
+            
+<li>
+    <a href="../../014_MAF_maftools/" class="dropdown-item">014 MAF maftools</a>
+</li>
+            
+<li>
+    <a href="../../014_TMB/" class="dropdown-item">014 TMB</a>
+</li>
+            
+<li>
+    <a href="../../015_STAR/" class="dropdown-item">015 STAR</a>
+</li>
+            
+<li>
+    <a href="../../016.drivegene/" class="dropdown-item">https://software.broadinstitute.org/cancer/cga/mutsig_faq</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">000 癌</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../000_%E7%99%8C/000_/" class="dropdown-item">000 </a>
+</li>
+            
+<li>
+    <a href="../../000_%E7%99%8C/001_%E6%98%93%E6%84%9F%E5%9F%BA%E5%9B%A0/" class="dropdown-item">001 易感基因</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">001 SNVINDDEL</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="./" class="dropdown-item active">001 Notes on Mutect2</a>
+</li>
+            
+<li>
+    <a href="../001_paper/" class="dropdown-item">001 paper</a>
+</li>
+            
+<li>
+    <a href="../001_somatic_slides/" class="dropdown-item">MuTect</a>
+</li>
+            
+<li>
+    <a href="../002_MuTect/" class="dropdown-item">002 MuTect</a>
+</li>
+            
+<li>
+    <a href="../004_Pisces/" class="dropdown-item">004 Pisces</a>
+</li>
+            
+<li>
+    <a href="../004_VarDict/" class="dropdown-item">004 VarDict</a>
+</li>
+            
+<li>
+    <a href="../007_panel-of-normals/" class="dropdown-item">007 panel of normals</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">002 SV</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../002_SV/00_paper/" class="dropdown-item">00 paper</a>
+</li>
+            
+<li>
+    <a href="../../002_SV/00_%E7%BB%BC%E8%BF%B0/" class="dropdown-item">00 综述</a>
+</li>
+            
+<li>
+    <a href="../../002_SV/01_manta/" class="dropdown-item">01 manta</a>
+</li>
+            
+<li>
+    <a href="../../002_SV/02_AnnotSV/" class="dropdown-item">02 AnnotSV</a>
+</li>
+            
+<li>
+    <a href="../../002_SV/03_lumpy_svtyper/" class="dropdown-item">03 lumpy svtyper</a>
+</li>
+            
+<li>
+    <a href="../../002_SV/04_delly/" class="dropdown-item">04 delly</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">003 CNV</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../003_CNV/001_GATKCNV/" class="dropdown-item">001 GATKCNV</a>
+</li>
+            
+<li>
+    <a href="../../003_CNV/005_CNV_CNVkit/" class="dropdown-item">005 CNV CNVkit</a>
+</li>
+            
+<li>
+    <a href="../../003_CNV/005_CNV_DeCoN/" class="dropdown-item">005 CNV DeCoN</a>
+</li>
+            
+<li>
+    <a href="../../003_CNV/005_CNV_gistic/" class="dropdown-item">005 CNV gistic</a>
+</li>
+            
+<li>
+    <a href="../../003_CNV/005_CNV_paper/" class="dropdown-item">A Comprehensive Workflow for Read Depth-Based Identification of Copy-Number Variation from Whole-Genome Sequence Data</a>
+</li>
+            
+<li>
+    <a href="../../003_CNV/005_CNV_purecn/" class="dropdown-item">005 CNV purecn</a>
+</li>
+            
+<li>
+    <a href="../../003_CNV/00_cnv/" class="dropdown-item">历史背景</a>
+</li>
+            
+<li>
+    <a href="../../003_CNV/01_facets/" class="dropdown-item">01 facets</a>
+</li>
+            
+<li>
+    <a href="../../003_CNV/02_%20Canvas/" class="dropdown-item">02  Canvas</a>
+</li>
+            
+<li>
+    <a href="../../003_CNV/07_Canvas/" class="dropdown-item">07 Canvas</a>
+</li>
+            
+<li>
+    <a href="../../003_CNV/08_PennCNV/" class="dropdown-item">08 PennCNV</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">005 MSI</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../005_MSI/01_/" class="dropdown-item">01 </a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">008 cfdna</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../008_cfdna/00/" class="dropdown-item">00</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">009 CellularityAndPloidy</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../009_CellularityAndPloidy/00_%E4%BB%8B%E7%BB%8D/" class="dropdown-item">00 介绍</a>
+</li>
+            
+<li>
+    <a href="../../009_CellularityAndPloidy/01_sequenza/" class="dropdown-item">介绍</a>
+</li>
+            
+<li>
+    <a href="../../009_CellularityAndPloidy/02_ABSOLUTE/" class="dropdown-item">02 ABSOLUTE</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">010 HLA</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../010_HLA/001_polysolver/" class="dropdown-item">001 polysolver</a>
+</li>
+            
+<li>
+    <a href="../../010_HLA/003_HLAreporter/" class="dropdown-item">003 HLAreporter</a>
+</li>
+            
+<li>
+    <a href="../../010_HLA/00_%E7%AE%80%E4%BB%8B/" class="dropdown-item">00 简介</a>
+</li>
+            
+<li>
+    <a href="../../010_HLA/010_HLA/" class="dropdown-item">010 HLA</a>
+</li>
+            
+<li>
+    <a href="../../010_HLA/010_seq2HLA/" class="dropdown-item">010 seq2HLA</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">011 NIPT</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../011_NIPT/00/" class="dropdown-item">00</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">012 mutation sig</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../012_mutation_sig/00_%E7%AE%80%E4%BB%8B/" class="dropdown-item">00 简介</a>
+</li>
+            
+<li>
+    <a href="../../012_mutation_sig/01_MutationalPattern/" class="dropdown-item">01 MutationalPattern</a>
+</li>
+            
+<li>
+    <a href="../../012_mutation_sig/02_SigProfilerMatrixGenerator/" class="dropdown-item">02 SigProfilerMatrixGenerator</a>
+</li>
+            
+<li>
+    <a href="../../012_mutation_sig/03_superFreq/" class="dropdown-item">03 superFreq</a>
+</li>
+            
+<li>
+    <a href="../../012_mutation_sig/04_deconstructSigs/" class="dropdown-item">04 deconstructSigs</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">013 mutation spectrum</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../013_mutation_spectrum/00/" class="dropdown-item">00</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">014 fusion</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../014_fusion/000_%E7%BB%BC%E8%BF%B0/" class="dropdown-item">000 综述</a>
+</li>
+            
+<li>
+    <a href="../../014_fusion/014_STARfusion/" class="dropdown-item">014 STARfusion</a>
+</li>
+            
+<li>
+    <a href="../../014_fusion/014_gFusion/" class="dropdown-item">014 gFusion</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">016 克隆进化</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../016_%E5%85%8B%E9%9A%86%E8%BF%9B%E5%8C%96/00/" class="dropdown-item">00</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">06 germline</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../06_germline/001_Germline-Variants-Calling/" class="dropdown-item">VCF</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">015</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../06_germline/015/1/" class="dropdown-item">1</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">09 scrna <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../09_scrna/00/" class="dropdown-item">00</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">10 NGS <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../10_NGS/000_linux/" class="dropdown-item">000 linux</a>
+</li>
+                                    
+<li>
+    <a href="../../../../10_NGS/000_linuxdemo/" class="dropdown-item">000 linuxdemo</a>
+</li>
+                                    
+<li>
+    <a href="../../../../10_NGS/001_SRA/" class="dropdown-item">001 SRA</a>
+</li>
+                                    
+<li>
+    <a href="../../../../10_NGS/002_%E5%BC%95%E7%89%A9%E8%AE%BE%E8%AE%A1/" class="dropdown-item">002 引物设计</a>
+</li>
+                                    
+<li>
+    <a href="../../../../10_NGS/003_shell/" class="dropdown-item">003 shell</a>
+</li>
+                                    
+<li>
+    <a href="../../../../10_NGS/004_genome/" class="dropdown-item">004 genome</a>
+</li>
+                                    
+<li>
+    <a href="../../../../10_NGS/005_docker/" class="dropdown-item">005 docker</a>
+</li>
+                                    
+<li>
+    <a href="../../../../10_NGS/005_docker%E8%BF%9B%E9%98%B6/" class="dropdown-item">005 docker进阶</a>
+</li>
+                                    
+<li>
+    <a href="../../../../10_NGS/006_git/" class="dropdown-item">006 git</a>
+</li>
+                                    
+<li>
+    <a href="../../../../10_NGS/007_ack/" class="dropdown-item">007 ack</a>
+</li>
+                                    
+<li>
+    <a href="../../../../10_NGS/008_tmux/" class="dropdown-item">008 tmux</a>
+</li>
+                                    
+<li>
+    <a href="../../../../10_NGS/009_NCBI/" class="dropdown-item">api</a>
+</li>
+                                    
+<li>
+    <a href="../../../../10_NGS/010_Allele%20Balance/" class="dropdown-item">010 Allele Balance</a>
+</li>
+                                    
+<li>
+    <a href="../../../../10_NGS/011_ORF/" class="dropdown-item">011 ORF</a>
+</li>
+                                    
+<li>
+    <a href="../../../../10_NGS/012_%E4%B8%8B%E8%BD%BD/" class="dropdown-item">012 下载</a>
+</li>
+                                    
+<li>
+    <a href="../../../../10_NGS/013_bed/" class="dropdown-item">013 bed</a>
+</li>
+                                    
+<li>
+    <a href="../../../../10_NGS/014_blat/" class="dropdown-item">014 blat</a>
+</li>
+                                    
+<li>
+    <a href="../../../../10_NGS/03/" class="dropdown-item">03</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">01 QC</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../10_NGS/01_QC/01_cutadapt/" class="dropdown-item">01 cutadapt</a>
+</li>
+            
+<li>
+    <a href="../../../../10_NGS/01_QC/05_fastp/" class="dropdown-item">05 fastp</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">11 ML <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../11_ML/001_/" class="dropdown-item">001 </a>
+</li>
+                                    
+<li>
+    <a href="../../../../11_ML/%E8%B4%9D%E5%8F%B6%E6%96%AF/" class="dropdown-item">贝叶斯</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">12 RNA <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../12_RNA/00/" class="dropdown-item">00</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">miRNA</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../12_RNA/miRNA/01/" class="dropdown-item">01</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">13 R PERL wdl <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../13_R_PERL_wdl/00.PERL/" class="dropdown-item">00.PERL</a>
+</li>
+                                    
+<li>
+    <a href="../../../../13_R_PERL_wdl/00.R/" class="dropdown-item">00.R</a>
+</li>
+                                    
+<li>
+    <a href="../../../../13_R_PERL_wdl/00.WDL/" class="dropdown-item">00.WDL</a>
+</li>
+                                    
+<li>
+    <a href="../../../../13_R_PERL_wdl/001_%E8%B4%9D%E5%8F%B6%E6%96%AF/" class="dropdown-item">001 贝叶斯</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">14 immune <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../14_immune/00/" class="dropdown-item">00</a>
+</li>
+                                    
+<li>
+    <a href="../../../../14_immune/01_%20pVACtools/" class="dropdown-item">01  pVACtools</a>
+</li>
+                                    
+<li>
+    <a href="../../../../14_immune/01_IMGT/" class="dropdown-item">01 IMGT</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">15 python <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../15_python/000_course/" class="dropdown-item">000 course</a>
+</li>
+                                    
+<li>
+    <a href="../../../../15_python/001_pandas/" class="dropdown-item">001 pandas</a>
+</li>
+                                    
+<li>
+    <a href="../../../../15_python/002_xls/" class="dropdown-item">002 xls</a>
+</li>
+                                    
+<li>
+    <a href="../../../../15_python/003_conda/" class="dropdown-item">003 conda</a>
+</li>
+                                    
+<li>
+    <a href="../../../../15_python/004_%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%99%A8/" class="dropdown-item">004 性能分析器</a>
+</li>
+                                    
+<li>
+    <a href="../../../../15_python/005_request/" class="dropdown-item">005 request</a>
+</li>
+                                    
+<li>
+    <a href="../../../../15_python/005_%E7%88%AC%E8%99%AB/" class="dropdown-item">Robots协议</a>
+</li>
+                                    
+<li>
+    <a href="../../../../15_python/007_parallel/" class="dropdown-item">007 parallel</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">16 TGS <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../16_TGS/001/" class="dropdown-item">Nanopore</a>
+</li>
+                                    
+<li>
+    <a href="../../../../16_TGS/002_minimap2/" class="dropdown-item">002 minimap2</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Slides <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../slides/20191121/" class="dropdown-item">20191121</a>
+</li>
+                                    
+<li>
+    <a href="../../../../slides/20191122/" class="dropdown-item">20191122</a>
+</li>
+                                    
+<li>
+    <a href="../../../../slides/20191128/" class="dropdown-item">Blood-based tumor mutational burden as a predictor of clinical benefit in non-small-cell lung cancer patients treated with atezolizumab</a>
+</li>
+                                    
+<li>
+    <a href="../../../../slides/20200130/" class="dropdown-item">Enhancing sensitivity and controlling false discovery rate in somatic indel discovery</a>
+</li>
+                                    
+<li>
+    <a href="../../../../slides/cfnda-protocl/" class="dropdown-item">Cfnda protocl</a>
+</li>
+                                    
+<li>
+    <a href="../../../../slides/cosmic/" class="dropdown-item">Cosmic</a>
+</li>
+                                    
+<li>
+    <a href="../../../../slides/marp/" class="dropdown-item">Marp</a>
+</li>
+                                    
+<li>
+    <a href="../../../../slides/umi/" class="dropdown-item">Umi</a>
+</li>
+                                    
+<li>
+    <a href="../../../../slides/%E7%97%85%E6%AF%92%E5%AE%8F%E5%9F%BA%E5%9B%A0%E7%BB%84/" class="dropdown-item">病毒宏基因组</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../000_%E7%99%8C/001_%E6%98%93%E6%84%9F%E5%9F%BA%E5%9B%A0/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../001_paper/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#ii-filtering" class="nav-link">II. FILTERING</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#c-allele-fraction-clustering-model" class="nav-link">C. Allele Fraction Clustering Model</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#iii-germline-filter" class="nav-link">III. GERMLINE FILTER</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#iii-related-gatk-tools" class="nav-link">III. RELATED GATK TOOLS</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#b-calculating-contamination" class="nav-link">B. Calculating Contamination</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<div class="toc">
+<ul>
+<li><a href="#ii-filtering">II. FILTERING</a><ul>
+<li><a href="#c-allele-fraction-clustering-model">C. Allele Fraction Clustering Model</a></li>
+<li><a href="#iii-germline-filter">III. GERMLINE FILTER</a></li>
+</ul>
+</li>
+<li><a href="#iii-related-gatk-tools">III. RELATED GATK TOOLS</a><ul>
+<li><a href="#b-calculating-contamination">B. Calculating Contamination</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h1 id="ii-filtering">II. FILTERING</h1>
+<h2 id="c-allele-fraction-clustering-model">C. Allele Fraction Clustering Model</h2>
+<p>Several of FilterMutectCalls’s probabilistic filters rely on the following graphical model for the tumor’s spectrum of allele fractions of real variants. At the top of the model is a binary indicator for whether a variant is neither a technical artifact or a non-somatic mutation.
+P (consider) = (1 − max artifact error prob)(1 − max non-somatic prob). (13)
+Note that possible sequencing errors, with error probability captured by the independent reads assumption of the Mutect2 log odds, are considered. Next, a candidate SNV has prior probability πreal = πSNV/3 to be real and prior probability 1 − πSNV/3 to be a sequencing error, while a candidate indel of length L (negative for deletions, positive for insertions) has prior probability πreal = πL to be real. Real variants are partitioned according to a mixture model with weights πH for a high-allele fraction cluster, πB for a “background cluster”, and πD = 1 − πH − πB to be further clustered into according to a Dirichlet process with concentration α. Each non-error cluster has a characteristic distribution of allele fractions: Beta(αH,βH) and Beta(αB,βB) for the high-allele fraction and background clusters, and Dirac δ functions for the Dirichlet clusters. The idea of this partitioning is that there will usually be sharply- defined allele fractions corresponding to the hets of different subclones, which are captured by the Dirichlet clusters, but that homozygosity and copy-number variation produce deviations from this clustering.
+Provided that we stochastically assign the ith variant as non-artifactual, the prior probabilities for each possibility are described by a modified Chinese Restaurant Process scheme:
+P (Sequencing error) =1 − πreal P(High AF) =πrealπH P(Background) =πrealπB
+P(Dirichlet )=π j
+cluster, N−i is the number of variants besides the ith assigned to cluster j, and N−i is the total number of variants jD
+besides the ith assigned to Dirichlet clusters.
+Mutect2 emits the likelihood ratio between sequencing error and a real variant assuming a flat prior. However,
+we can approximately compute the likelihood ratio that a non-flat Beta prior would have produced. We can do this because in Equation 9 a change in the prior allele fraction is unlikely to affect z ̄ very much - usually the allele that a read supports is clear regardless of prior. Therefore, only the term g(α) − g(β) changes. Since β = α + n, where n is the vector of observed read counts per allele we can convert the log-likelihood obtained with flat prior α0 to one reflecting an allele fraction prior α by adding
+∆log odds(α)=∆lnP(R|A)=[g(α)−g(α+n)]−[g(α0)−g(α0 +n)]. (19)
+Since only ratios of likelihoods are meaningful, we may WLOG set the likelihood of reads given sequencing error to be 1 and then set the likelihood fo each allele fraction cluster to be exp [Mutect2 log odds + ∆log odds(α)]. The likelihood of a new cluster is the average over all possible new allele fractions of the likelihood, which is, by definition, simply the original Mutect2 likelihood that integrated over a flat prior. Thus we have likelihoods for every cluster. Combined with the priors, this gives us the conditional posterior for Gibbs sampling the cluster assignment of a candidate variant.
+We can estimate the parameters of the model by maximum likelihood. For example, we estimate πL as the total number of length-L indels in the non-error clusters divided by the total number of callable sites3, πB as the total number of variants assigned to the background cluster divided by the total number of non-error assignments. The allele fraction of a Dirichlet cluster is estimated as its total alt read count divided by its total read count. Finally, the beta distributions of the high-allele fraction and background clusters are fit by brute force likelihood optimization.
+Once the model converges, the combination of cluster weights and allele-fraction-adjusted likelihoods lets us compute the posterior probability that a candidate variant is a sequencing error, which determines the weak evidence filter. Since the clusters also define distributions on alt allele counts – the high-AF and background clusters define beta-binomials and the Dirichlet clusters define binomial – we also have the mixture model distribution P (alt count|total count, somatic), which the contamination and germline filters use.</p>
+<hr />
+<h2 id="iii-germline-filter">III. GERMLINE FILTER</h2>
+<p>Suppose we have detected an allele such that its (somatic) likelihood in the tumor is $l_{t}$ and its(diploid) likelihood in the normal is ${l_{n}}^{2}$. By convention, both of these are relative to a likelihood of 1 for the allele not to be found. If we have no matched normal, ln = 1. Suppose we also have the population allele frequency f of this allele. Then the prior probabilities for the normal to be heterozygous and homozygous alt for the allele are 2f(1−f) and f2 and the prior probability for the normal genotype not to contain the allele is (1−f)2. Finally, suppose that the prior for this allele to arise as a somatic variant is π.
+假设我们已经检测到某个等位基因在肿瘤样本中的突变似然值是$l_{t}$，它在正常样本中的似然值是${l_{n}}^{2}$。按照惯例，如果该等位基因没有被发现，则它们都有1的似然值。如果我们没有配对的正常样本，$l_{t} = 1$。假设我们也有了该等位基因的人群突变频率，那么正常样本的杂合和纯合等位基因的先验概率分别为$2f(1−f)$ 和$f^{2}$， 正常样本基因型不包含该等位基因先验概率是$(1−f)^{2}$。最后假设该等位基因是肿瘤变异的先验概率是$π$。
+We can determine the posterior probability that the variant exists in the normal genotype by calculating the unnormalized probabilities of four possibilities:
+1. The variant exists in the tumor and the normal as a germline het. This has unnormalized probability 2f (1 − f)lnlt(1 − π).
+2. The variant exists in the tumor and the normal as a germline hom alt. This has unnormalized probability f2lnlt(1 − π).
+3. The variant exists in the tumor but not the normal. This has unnormalized probability (1 − f)2ltπ.</p>
+<p>We exclude possibilities in which the variant does not exist in the tumor sample because we really want the conditional probability that the variant is germline given that it would otherwise be called.
+Normalizing, we obtain the following posterior probability that an allele is a germline variant: (1)+(2)  2f(1−f)+f2 lnlt(1−π)
+P(germline)= (1)+(2)+(3) = (2f(1−f)+f2)lnlt(1−π)+lt(1−f)2π. (26)
+The above equation, in which the factors of lt could cancel if we wished, is not quite right. The tumor likelihood
+lt is the probability of the tumor data given that the allele exists in the tumor as a somatic variant. If the allele is
+in the tumor as a germline het we must modify lt to account for the fact that the allele fraction is determined by the
+ploidy – it must be either fg or 1 − fgwith equal probability, where fg is the minor allele fraction of germline hets.
+It would be awkward to recalculate the tumor likelihood with the allele frequency constrained to these two values3,
+but we can estimate a correction factor as follows: assuming that the posterior on the allele fraction in the somatic
+likelihoods model is fairly tight, the likelihood of a alt reads out of n total reads is  n (1 − ft)n−afa, where ft is the a
+tumor alt allele fraction. That is, our sophisticated model that marginalizes over ft reduces to something more naive. If the variant is a germline event, the likelihood becomes 1 n  (1−f )n−afa +fn−a(1−f )a . Thus, in case (1) we
+1 (1 − fg)n−afa + fn−a(1 − fg)a
+χ=gg. (27)
+5
+  2agggg
+ have lt → χlt, where
+For germline hom alts, both the tumor and normal allele fractions will be similarly large, so to decent approximation we don’t have to modify lt. Of course, this only applies if the allele fraction is large. Rather than try to model the count of ref reads within a germline hom alt site, we simply set a threshold of allele fraction 0.9, so that in case (2) lt → I[ft &gt; 0.9]lt. and the corrected germline probability is
+(1)+(2)  2f(1−f)χ+I[ft &gt;0.9]f2 ln(1−π)
+P(germline)= (1)+(2)+(3) = (2f(1−f)χ+I[ft &gt;0.9]f2)ln(1−π)+(1−f)2π. (28)
+To filter, we set a threshold on this posterior probability.
+So far we have assumed that the population allele frequency f is known, which is the case if it is found in our germline
+resource, such as gnomAD. If f is not known we must make a reasonable guess as follows. Suppose the prior distribution on f is Beta(α, β). The mean α/(α+β) of this prior is the average human heterozygosity θ ≈ 10−3, so we have β ≈ α/θ. We need one more constraint to determine α and β, and since we are concerned with imputing f when f is small we use a condition based on rare variants. Specifically, the number of variant alleles n at some site in a germline resource with N/2 samples, hence N chromosomes, is given by f ∼ Beta(α,β),n ∼ Binom(N,f). That is, n ∼ BetaBinom(α,β,N). The probability of a site being non-variant in every sample is then P(n = 0) = BetaBinom(0|α,β,N), which we equate to the empirical proportion of non-variant sites in our resource, about 7/8 for exonic sites in gnomAD. Solving, we obtain approximately α = 0.01, β = 10 for gnomAD. Now, given that some allele found by Mutect is not in the resource, the posterior on f is Beta(α, β + N ), the mean of which is, since β &lt;&lt; N , about α/N . By default, Mutect uses this value.</p>
+<h1 id="iii-related-gatk-tools">III. RELATED GATK TOOLS</h1>
+<h2 id="b-calculating-contamination">B. Calculating Contamination</h2></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js" defer></script>
+        <script src="../../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

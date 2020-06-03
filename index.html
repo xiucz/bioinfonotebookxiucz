@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>My Docs</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem active">
+                                <a href="." class="nav-link">Welcome to MkDocs</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="000_todolist/" class="nav-link">000 todolist</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="bookmark/" class="nav-link">Bookmark</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="zzzzz/" class="nav-link">Zzzzz</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="%E5%8D%95%E8%AF%8D/" class="nav-link">单词</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/" class="nav-link">工作记录</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">00  <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="00_/000_%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84/" class="dropdown-item">000 基因结构</a>
+</li>
+                                    
+<li>
+    <a href="00_/001_%20CombineVariants/" class="dropdown-item">001  CombineVariants</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">01 database <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="01_database/00/" class="dropdown-item">00</a>
+</li>
+                                    
+<li>
+    <a href="01_database/01_annovar/" class="dropdown-item">01 annovar</a>
+</li>
+                                    
+<li>
+    <a href="01_database/01_ensemble/" class="dropdown-item">01 ensemble</a>
+</li>
+                                    
+<li>
+    <a href="01_database/01_vep/" class="dropdown-item">01 vep</a>
+</li>
+                                    
+<li>
+    <a href="01_database/02_datasets/" class="dropdown-item">02 datasets</a>
+</li>
+                                    
+<li>
+    <a href="01_database/03_dbNSFP/" class="dropdown-item">03 dbNSFP</a>
+</li>
+                                    
+<li>
+    <a href="01_database/04_dbSNP/" class="dropdown-item">04 dbSNP</a>
+</li>
+                                    
+<li>
+    <a href="01_database/05_MalaCards/" class="dropdown-item">05 MalaCards</a>
+</li>
+                                    
+<li>
+    <a href="01_database/06_revel/" class="dropdown-item">06 revel</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Pic</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="01_database/pic/readme/" class="dropdown-item">Readme</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">02 course <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="02_course/01_%E7%94%9F%E4%BF%A1%E8%B5%84%E6%BA%90%E8%AF%BE/" class="dropdown-item">01 生信资源课</a>
+</li>
+                                    
+<li>
+    <a href="02_course/02_%E6%B5%8B%E5%BA%8F%E5%8E%9F%E7%90%86/" class="dropdown-item">02 测序原理</a>
+</li>
+                                    
+<li>
+    <a href="02_course/Agilent_SureSelect/" class="dropdown-item">Agilent SureSelect</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">04 linuxshell <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="04_linuxshell/0/" class="dropdown-item">0</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">07 microbe <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="07_microbe/00_%E7%BB%BC%E8%BF%B0/" class="dropdown-item">00 综述</a>
+</li>
+                                    
+<li>
+    <a href="07_microbe/01_%E6%8B%BC%E6%8E%A5%E7%BB%84%E8%A3%85/" class="dropdown-item">IDBA-UD：用于深度非常不均匀的单细胞和宏基因组测序数据的组装软件</a>
+</li>
+                                    
+<li>
+    <a href="07_microbe/02_%E5%AE%8F%E7%97%85%E6%AF%92%E7%BB%84/" class="dropdown-item">02 宏病毒组</a>
+</li>
+                                    
+<li>
+    <a href="07_microbe/03_nCov19%E8%B5%84%E6%BA%90/" class="dropdown-item">03 nCov19资源</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">08 DNA <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="08_DNA/002_BAF/" class="dropdown-item">002 BAF</a>
+</li>
+                                    
+<li>
+    <a href="08_DNA/003_VEP/" class="dropdown-item">003 VEP</a>
+</li>
+                                    
+<li>
+    <a href="08_DNA/003_annovar/" class="dropdown-item">003 annovar</a>
+</li>
+                                    
+<li>
+    <a href="08_DNA/004_benchmark-datasets/" class="dropdown-item">数据集</a>
+</li>
+                                    
+<li>
+    <a href="08_DNA/006_sam_bam_samtools/" class="dropdown-item">006 sam bam samtools</a>
+</li>
+                                    
+<li>
+    <a href="08_DNA/01_HGVS/" class="dropdown-item">01 HGVS</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">001 NIPT</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="08_DNA/001_NIPT/00/" class="dropdown-item">00</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">004 TCGA</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="08_DNA/004_TCGA/00/" class="dropdown-item">00</a>
+</li>
+            
+<li>
+    <a href="08_DNA/004_TCGA/01_%E7%BB%93%E7%9B%B4%E8%82%A0%E7%99%8C/" class="dropdown-item">01 结直肠癌</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">05 somatic</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="08_DNA/05_somatic/001_Mutect2/" class="dropdown-item">001 Mutect2</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/007_Tumor-Heterogeneity-Analysis/" class="dropdown-item">007 Tumor Heterogeneity Analysis</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/008_cfdna/" class="dropdown-item">008 cfdna</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/008_cfdna_paper/" class="dropdown-item">https://github.com/dkleftogi/cfDNA_AnalysisPipeline</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/009_MSI/" class="dropdown-item">009 MSI</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/009_MSI_paper/" class="dropdown-item">009 MSI paper</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/009_%E4%B8%B2%E8%81%94%E9%87%8D%E5%A4%8D%E5%BA%8F%E5%88%97/" class="dropdown-item">009 串联重复序列</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/010_drivergene/" class="dropdown-item">010 drivergene</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/014_MAF_maftools/" class="dropdown-item">014 MAF maftools</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/014_TMB/" class="dropdown-item">014 TMB</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/015_STAR/" class="dropdown-item">015 STAR</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/016.drivegene/" class="dropdown-item">https://software.broadinstitute.org/cancer/cga/mutsig_faq</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">000 癌</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="08_DNA/05_somatic/000_%E7%99%8C/000_/" class="dropdown-item">000 </a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/000_%E7%99%8C/001_%E6%98%93%E6%84%9F%E5%9F%BA%E5%9B%A0/" class="dropdown-item">001 易感基因</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">001 SNVINDDEL</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="08_DNA/05_somatic/001_SNVINDDEL/001_Notes_on_Mutect2/" class="dropdown-item">001 Notes on Mutect2</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/001_SNVINDDEL/001_paper/" class="dropdown-item">001 paper</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/001_SNVINDDEL/001_somatic_slides/" class="dropdown-item">MuTect</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/001_SNVINDDEL/002_MuTect/" class="dropdown-item">002 MuTect</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/001_SNVINDDEL/004_Pisces/" class="dropdown-item">004 Pisces</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/001_SNVINDDEL/004_VarDict/" class="dropdown-item">004 VarDict</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/001_SNVINDDEL/007_panel-of-normals/" class="dropdown-item">007 panel of normals</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">002 SV</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="08_DNA/05_somatic/002_SV/00_paper/" class="dropdown-item">00 paper</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/002_SV/00_%E7%BB%BC%E8%BF%B0/" class="dropdown-item">00 综述</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/002_SV/01_manta/" class="dropdown-item">01 manta</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/002_SV/02_AnnotSV/" class="dropdown-item">02 AnnotSV</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/002_SV/03_lumpy_svtyper/" class="dropdown-item">03 lumpy svtyper</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/002_SV/04_delly/" class="dropdown-item">04 delly</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">003 CNV</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="08_DNA/05_somatic/003_CNV/001_GATKCNV/" class="dropdown-item">001 GATKCNV</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/003_CNV/005_CNV_CNVkit/" class="dropdown-item">005 CNV CNVkit</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/003_CNV/005_CNV_DeCoN/" class="dropdown-item">005 CNV DeCoN</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/003_CNV/005_CNV_gistic/" class="dropdown-item">005 CNV gistic</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/003_CNV/005_CNV_paper/" class="dropdown-item">A Comprehensive Workflow for Read Depth-Based Identification of Copy-Number Variation from Whole-Genome Sequence Data</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/003_CNV/005_CNV_purecn/" class="dropdown-item">005 CNV purecn</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/003_CNV/00_cnv/" class="dropdown-item">历史背景</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/003_CNV/01_facets/" class="dropdown-item">01 facets</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/003_CNV/02_%20Canvas/" class="dropdown-item">02  Canvas</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/003_CNV/07_Canvas/" class="dropdown-item">07 Canvas</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/003_CNV/08_PennCNV/" class="dropdown-item">08 PennCNV</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">005 MSI</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="08_DNA/05_somatic/005_MSI/01_/" class="dropdown-item">01 </a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">008 cfdna</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="08_DNA/05_somatic/008_cfdna/00/" class="dropdown-item">00</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">009 CellularityAndPloidy</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="08_DNA/05_somatic/009_CellularityAndPloidy/00_%E4%BB%8B%E7%BB%8D/" class="dropdown-item">00 介绍</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/009_CellularityAndPloidy/01_sequenza/" class="dropdown-item">介绍</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/009_CellularityAndPloidy/02_ABSOLUTE/" class="dropdown-item">02 ABSOLUTE</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">010 HLA</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="08_DNA/05_somatic/010_HLA/001_polysolver/" class="dropdown-item">001 polysolver</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/010_HLA/003_HLAreporter/" class="dropdown-item">003 HLAreporter</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/010_HLA/00_%E7%AE%80%E4%BB%8B/" class="dropdown-item">00 简介</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/010_HLA/010_HLA/" class="dropdown-item">010 HLA</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/010_HLA/010_seq2HLA/" class="dropdown-item">010 seq2HLA</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">011 NIPT</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="08_DNA/05_somatic/011_NIPT/00/" class="dropdown-item">00</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">012 mutation sig</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="08_DNA/05_somatic/012_mutation_sig/00_%E7%AE%80%E4%BB%8B/" class="dropdown-item">00 简介</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/012_mutation_sig/01_MutationalPattern/" class="dropdown-item">01 MutationalPattern</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/012_mutation_sig/02_SigProfilerMatrixGenerator/" class="dropdown-item">02 SigProfilerMatrixGenerator</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/012_mutation_sig/03_superFreq/" class="dropdown-item">03 superFreq</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/012_mutation_sig/04_deconstructSigs/" class="dropdown-item">04 deconstructSigs</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">013 mutation spectrum</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="08_DNA/05_somatic/013_mutation_spectrum/00/" class="dropdown-item">00</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">014 fusion</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="08_DNA/05_somatic/014_fusion/000_%E7%BB%BC%E8%BF%B0/" class="dropdown-item">000 综述</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/014_fusion/014_STARfusion/" class="dropdown-item">014 STARfusion</a>
+</li>
+            
+<li>
+    <a href="08_DNA/05_somatic/014_fusion/014_gFusion/" class="dropdown-item">014 gFusion</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">016 克隆进化</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="08_DNA/05_somatic/016_%E5%85%8B%E9%9A%86%E8%BF%9B%E5%8C%96/00/" class="dropdown-item">00</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">06 germline</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="08_DNA/06_germline/001_Germline-Variants-Calling/" class="dropdown-item">VCF</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">015</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="08_DNA/06_germline/015/1/" class="dropdown-item">1</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">09 scrna <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="09_scrna/00/" class="dropdown-item">00</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">10 NGS <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="10_NGS/000_linux/" class="dropdown-item">000 linux</a>
+</li>
+                                    
+<li>
+    <a href="10_NGS/000_linuxdemo/" class="dropdown-item">000 linuxdemo</a>
+</li>
+                                    
+<li>
+    <a href="10_NGS/001_SRA/" class="dropdown-item">001 SRA</a>
+</li>
+                                    
+<li>
+    <a href="10_NGS/002_%E5%BC%95%E7%89%A9%E8%AE%BE%E8%AE%A1/" class="dropdown-item">002 引物设计</a>
+</li>
+                                    
+<li>
+    <a href="10_NGS/003_shell/" class="dropdown-item">003 shell</a>
+</li>
+                                    
+<li>
+    <a href="10_NGS/004_genome/" class="dropdown-item">004 genome</a>
+</li>
+                                    
+<li>
+    <a href="10_NGS/005_docker/" class="dropdown-item">005 docker</a>
+</li>
+                                    
+<li>
+    <a href="10_NGS/005_docker%E8%BF%9B%E9%98%B6/" class="dropdown-item">005 docker进阶</a>
+</li>
+                                    
+<li>
+    <a href="10_NGS/006_git/" class="dropdown-item">006 git</a>
+</li>
+                                    
+<li>
+    <a href="10_NGS/007_ack/" class="dropdown-item">007 ack</a>
+</li>
+                                    
+<li>
+    <a href="10_NGS/008_tmux/" class="dropdown-item">008 tmux</a>
+</li>
+                                    
+<li>
+    <a href="10_NGS/009_NCBI/" class="dropdown-item">api</a>
+</li>
+                                    
+<li>
+    <a href="10_NGS/010_Allele%20Balance/" class="dropdown-item">010 Allele Balance</a>
+</li>
+                                    
+<li>
+    <a href="10_NGS/011_ORF/" class="dropdown-item">011 ORF</a>
+</li>
+                                    
+<li>
+    <a href="10_NGS/012_%E4%B8%8B%E8%BD%BD/" class="dropdown-item">012 下载</a>
+</li>
+                                    
+<li>
+    <a href="10_NGS/013_bed/" class="dropdown-item">013 bed</a>
+</li>
+                                    
+<li>
+    <a href="10_NGS/014_blat/" class="dropdown-item">014 blat</a>
+</li>
+                                    
+<li>
+    <a href="10_NGS/03/" class="dropdown-item">03</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">01 QC</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="10_NGS/01_QC/01_cutadapt/" class="dropdown-item">01 cutadapt</a>
+</li>
+            
+<li>
+    <a href="10_NGS/01_QC/05_fastp/" class="dropdown-item">05 fastp</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">11 ML <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="11_ML/001_/" class="dropdown-item">001 </a>
+</li>
+                                    
+<li>
+    <a href="11_ML/%E8%B4%9D%E5%8F%B6%E6%96%AF/" class="dropdown-item">贝叶斯</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">12 RNA <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="12_RNA/00/" class="dropdown-item">00</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">miRNA</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="12_RNA/miRNA/01/" class="dropdown-item">01</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">13 R PERL wdl <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="13_R_PERL_wdl/00.PERL/" class="dropdown-item">00.PERL</a>
+</li>
+                                    
+<li>
+    <a href="13_R_PERL_wdl/00.R/" class="dropdown-item">00.R</a>
+</li>
+                                    
+<li>
+    <a href="13_R_PERL_wdl/00.WDL/" class="dropdown-item">00.WDL</a>
+</li>
+                                    
+<li>
+    <a href="13_R_PERL_wdl/001_%E8%B4%9D%E5%8F%B6%E6%96%AF/" class="dropdown-item">001 贝叶斯</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">14 immune <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="14_immune/00/" class="dropdown-item">00</a>
+</li>
+                                    
+<li>
+    <a href="14_immune/01_%20pVACtools/" class="dropdown-item">01  pVACtools</a>
+</li>
+                                    
+<li>
+    <a href="14_immune/01_IMGT/" class="dropdown-item">01 IMGT</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">15 python <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="15_python/000_course/" class="dropdown-item">000 course</a>
+</li>
+                                    
+<li>
+    <a href="15_python/001_pandas/" class="dropdown-item">001 pandas</a>
+</li>
+                                    
+<li>
+    <a href="15_python/002_xls/" class="dropdown-item">002 xls</a>
+</li>
+                                    
+<li>
+    <a href="15_python/003_conda/" class="dropdown-item">003 conda</a>
+</li>
+                                    
+<li>
+    <a href="15_python/004_%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%99%A8/" class="dropdown-item">004 性能分析器</a>
+</li>
+                                    
+<li>
+    <a href="15_python/005_request/" class="dropdown-item">005 request</a>
+</li>
+                                    
+<li>
+    <a href="15_python/005_%E7%88%AC%E8%99%AB/" class="dropdown-item">Robots协议</a>
+</li>
+                                    
+<li>
+    <a href="15_python/007_parallel/" class="dropdown-item">007 parallel</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">16 TGS <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="16_TGS/001/" class="dropdown-item">Nanopore</a>
+</li>
+                                    
+<li>
+    <a href="16_TGS/002_minimap2/" class="dropdown-item">002 minimap2</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Slides <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="slides/20191121/" class="dropdown-item">20191121</a>
+</li>
+                                    
+<li>
+    <a href="slides/20191122/" class="dropdown-item">20191122</a>
+</li>
+                                    
+<li>
+    <a href="slides/20191128/" class="dropdown-item">Blood-based tumor mutational burden as a predictor of clinical benefit in non-small-cell lung cancer patients treated with atezolizumab</a>
+</li>
+                                    
+<li>
+    <a href="slides/20200130/" class="dropdown-item">Enhancing sensitivity and controlling false discovery rate in somatic indel discovery</a>
+</li>
+                                    
+<li>
+    <a href="slides/cfnda-protocl/" class="dropdown-item">Cfnda protocl</a>
+</li>
+                                    
+<li>
+    <a href="slides/cosmic/" class="dropdown-item">Cosmic</a>
+</li>
+                                    
+<li>
+    <a href="slides/marp/" class="dropdown-item">Marp</a>
+</li>
+                                    
+<li>
+    <a href="slides/umi/" class="dropdown-item">Umi</a>
+</li>
+                                    
+<li>
+    <a href="slides/%E7%97%85%E6%AF%92%E5%AE%8F%E5%9F%BA%E5%9B%A0%E7%BB%84/" class="dropdown-item">病毒宏基因组</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" class="nav-link disabled">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="000_todolist/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#welcome-to-mkdocs" class="nav-link">Welcome to MkDocs</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#commands" class="nav-link">Commands</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#project-layout" class="nav-link">Project layout</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
+<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
+<h2 id="commands">Commands</h2>
+<ul>
+<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
+<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
+<li><code>mkdocs build</code> - Build the documentation site.</li>
+<li><code>mkdocs -h</code> - Print help message and exit.</li>
+</ul>
+<h2 id="project-layout">Project layout</h2>
+<pre><code>mkdocs.yml    # The configuration file.
+docs/
+    index.md  # The documentation homepage.
+    ...       # Other markdown pages, images and other files.
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.1.2
+Build Date UTC : 2020-06-03 02:27:23.785828+00:00
+-->
