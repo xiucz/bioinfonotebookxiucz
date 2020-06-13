@@ -31,12 +31,36 @@ The combination of LRR and BAF can be used together to determine different copy 
 ![](pics/20200525.png)
 
 # 算法
+
+The determination of CNV calling for normal and tumor samples begins with three steps:
+1. Computation of sequence coverage
+2. Estimation and correction of bias in coverage
+a. Modeling of coverage bias
+b. Correction of modeled bias
+c. Coverage smoothing
+3. Normalization of coverage by comparison to a baseline sample or set of samples
+Following normalization of coverage, both normal and tumor samples are segmented using
+Hidden Markov Models (HMM), but with a different model for each sample types:
+4. HMM segmentation, scoring and output
+Finally, normal samples are subjected to a “no-calling” process that identifies CNV calls that are
+suspect:
+5. Population-based no-calling/identification of low-confidence regions
+
 ## 基于深度测序的拷贝数变异的检测算法
 随着测序技术的发展和测序成本的降低，与其他基于微阵列的技术相比，深度测序提供了更高精度和更大通量的数据用于拷贝数变异的分析[12]。针对深度测序技术，很多算法被开发出来用于拷贝数变异的检测。根据算法所使用的数据，可以将这些算法分为三类。第一类是只使用片段的深度信息，如CNAnorm、THetA等[13, 14]。第二类是只是用单核苷酸变异信息，如PurityEst和PurBayes[15, 16]。第三类是同时使用片段的深度信息和单核苷酸变异信息，如PyLOH和patchwork[17, 18]。第一类和第二类方法会出现识别问题，因为样本纯度的不同和癌细胞倍性的不同可能会产生相同的观测数据。例如当某个肿瘤组织样本的癌细胞纯度为0.4，癌细胞的倍性为4时，与当肿瘤组织样本纯度为0.8，癌细胞的倍性为3时，样本的倍性均为2.8。同样，只使用单核苷酸变异信息也会产生类似的问题。因此，有些算法为了规避这些问题，使用了各种不同的显式或者隐式的假设。如PurityEst，一种使用B基因频率(B-allele frequencies，BAFs)的算法，会假设BAFs值接近于0.5。因此同时使用片段的深度信息和单核苷酸变异信息的第三类方法，能较好地解决识别问题。根据算法产生的结果，可以将算法分为三类，第一类是只计算片段的完全拷贝数。第二类是计算片段的完全拷贝数及主要等位基因的拷贝数，因此与第一类算法相比，这类算法能够推断出基因型。例如，某个基因的拷贝数为3，它的基因型有AAA，AAB，ABB和BBB这四种，第一类算法只能推断出这个基因的拷贝数，而第二类算法还能推断出这个基因的基因型。第三类算法除了具有第二类算法的功能外，还具有判断某个片段是否存在亚克隆的情况，由于肿瘤组织中癌细胞存在亚克隆，因此对亚克隆片段的推断有重要意义。但是对于亚克隆片段的基因型的推断，目前还是一个具有挑战性的难题。
 
 虽然，有很多针对于深度测序数据的算法被设计出来。但是样本的测序深度，样本的纯度，样本中癌细胞发生拷贝数变异的多少及样本中亚克隆数对这些算法的影响还没有进行系统性的研究。因此在本次研究中，我们比较了3种用于检测拷贝数变异的算法。我们模拟出不同纯度、不同亚克隆数、不同拷贝数变异数量以及不同测序深度的全基因组测序数据，对这些算法进行评估，找出它们之间的优劣。
 ## 软件比较
 https://www.yfish.org/display/PUB/Performance+comparison+of+Accucopy+%28Accurity+2%29%2C+Sequenza%2C+and+ControlFreeC
+
+## coverage
+计算覆盖度的时候要注意什么：
+### 1. QC
+starts with the raw read counts per 1,000 base window for both normal and tumor samples by counting the number of alignment starts in the respective bam files with a mapping quality score of at least 10 that is neither **unmapped, duplicated, secondary, nor supplementary**. Windows with a GC content less than 0.2 or greater than 0.6 or with an average mappability below 0.85 are excluded from further analysis.
+
+/Users/xiucz/Downloads/bioinfonotebookxiucz/docs/10_NGS/015_GC.md
+
+### 2. GC含量校正
 
 ## segmentation
 ### segmentation algorithms
