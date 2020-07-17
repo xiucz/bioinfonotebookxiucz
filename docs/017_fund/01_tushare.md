@@ -15,3 +15,5 @@ ts.get_hist_data('sz50'）#获取上证50指数k线数据
 ts.get_hist_data('zxb'）#获取中小板指数k线数据
 ts.get_hist_data('cyb'）#获取创业板指数k线数据
 ```
+
+https://blog.csdn.net/weixin_43881394/article/details/106354105

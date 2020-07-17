@@ -41,3 +41,11 @@ $R(x) = (\alpha q(x) + 2(1-\alpha)) / D = (\alpha / D) q(x) + (2(1-\alpha) / D)
 \rightarrow$ 平均绝对拷贝数 / 平均倍性
 
 因为q(x)取整数值，因此R(x)必然是离散值。最小值为(2(1-\alpha)/D)，发生在纯合性缺失位点，对应正常细胞的DNA比例。
+
+The spacing between values $α/D$ corresponds to the concentration ratio of alleles present at one copy per cancer cell and 0 copies per normal cell.
+
+>>> Notably, if a cancer sample is not strictly clonal, copy-number alteration occurring in substantial subclonal fraction will appear as outliers from this pattern.
+
+## output
+
+https://www.genepattern.org/analyzing-absolute-data
