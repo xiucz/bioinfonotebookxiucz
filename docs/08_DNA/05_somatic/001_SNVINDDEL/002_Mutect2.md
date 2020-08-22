@@ -1,0 +1,41 @@
+##  FILTER and FORMAT
+Filter | Threshold | Key | Explanation | Version
+--- | ---| --- | --- | ---
+t_lod | | | | 
+clustered_events | max-events-in-region | ECNT | mutations sharing an assembly region |
+duplicate_evidence | unique-alt-read-count | - | unique insert start/end pairs of alt reads |
+multiallelic | max-alt-alleles-count | - | passing alt alleles at a site | 
+base_quality | min-median-base-quality | MBQ | median base quality of alt reads |
+mapping quality | min-median-mapping-quality | MMQ | median mapping quality of alt reads | 
+fragment length | max-median-fragment-length-difference | - | difference of alt and ref reads’ median fragment lengths |
+read position | min-median-read-position |  | median distance of alt mutations from end of read  |
+panel of normals | panel-of-normals |  | presence in panel of normals | 
+
+---
+> base_quality
++ base_quality标签出现在了filter列，它在call的时候估算的参数为MBQ=0，而我们设置的min-median-base-quality参数为20，因为0<20,所以base_quality的标签出现在了tag里边。
+> clustered_events
++ 活动区域发生多次突变，且突变位点距离在3bp及以上。
++ max-events-in-region is the maximum allowable number of called variants co-occurring in a single assembly region. If the number of called variants exceeds this they will all be filtered.
++ Variants coming from an assembly region with more than this many events are filtered.
+> germline_risk
++ 该位点是germline event的最大后验概率， 根据模型计算P_GERMLINE值，大于设定值就会添加germline_risk的标签。
++ Maximum posterior probability that an allele is a germline variant.
++ max-germline-posterior is the maximum posterior probability, as determined by the above germline probability model, that a variant is a germline event.
+> artifact_in_normal
++ 当tumor和control成对call的时候，会对control组的normal样本单独设置对数比阈值，该阈值越高，过滤标准越严格，因为认为normal全部是假阳性，所以会设置较低的LOD值。
++ normal-artifact-lod is the maximum acceptable likelihood of an allele in the normal by the somatic likelihoods model. This is different from the normal likelihood that goes into the germline model, which makes a diploid assumption. Here we compute the normal likelihood as if it were a tumor in order to detect artifacts.
+> strand_artifact
++ max-strand-artifact-probability is the posterior probability of a strand artifact, as determined by the model described above, required to apply the strand artifact filter.
++ 链偏好性的后验概率，根据计算的SA_POST_PROB，大于设定值则过滤；还有第二层补充条件；
++ This is necessary but not sufficient – we also require the estimated max a posteriori allele fraction to be less than min-strand-artifact-allele-fraction.The second condition prevents filtering real variants that also have significant strand bias, i.e. a true variant that also has some artifactual reads.
++ 如果链偏好性的最大后验概率比SA_MAP_AF（MAP estimates of allele fraction given
+变异频率的最大后验概率）值小，会保留，以防将真阳性位点加上strand_artifact标签。
++ Filter a variant if the probability of strand artifact exceeds this number
+> mapping_quality
+> fragment_length
++ tumor-normal成对call才会出现的
+> read_position
++ 位点到read末尾的最近读取端的最小中值长度。DENELS的位置是由读数末尾最远的一端测量的。
+
+https://www.jianshu.com/p/31ad61aa9d78

@@ -17,6 +17,9 @@ Technologies for CNV Detection
 
 # 名词
 ## BAF
+
+![](pics/20200810.png)
+![](pics/20200810_1.png)
 ![](pics/20200525_2.png)
 ## LRR
 > **LRR** is a measure of normalized total signal intensity.
@@ -139,3 +142,7 @@ Note: For the analysis of compound heterozygous CNV and SNVs, the filtering of t
 
 
 https://bioconductor.org/packages/release/bioc/html/CNVtools.html
+
+
+------
+
