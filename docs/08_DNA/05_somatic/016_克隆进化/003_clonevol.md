@@ -8,3 +8,6 @@ When evaluating the clusters, look for
 + noise clusters (eg. ones that show very similar and low V AF across samples, indicating false variant calls)
 
 or calculate the equivalent copy number corrected VAF as half of the CCF.
+
+### 第二步
+Clustering the variants based on their cellular prevalence across samples is a critical step.

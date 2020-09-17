@@ -1,0 +1,1 @@
+https://www.bioconductor.org/packages/release/bioc/vignettes/signeR/inst/doc/signeR-vignette.html#toc6.1

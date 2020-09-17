@@ -39,3 +39,15 @@ panel of normals | panel-of-normals |  | presence in panel of normals |
 + 位点到read末尾的最近读取端的最小中值长度。DENELS的位置是由读数末尾最远的一端测量的。
 
 https://www.jianshu.com/p/31ad61aa9d78
+
+###
+### mutect2的AF（AF calculation in Mutect2）
+> One possibility is that there are reads supporting one or the other allele that aren't being counted in the AD values because they're not considered informative for the purposes of the genotyping, but they are being counted in the allele fraction estimation. Another is that there are reads supporting some other allele that is not called, but is present in some minor fraction, and is therefore counted in the AF estimation as well. In both cases you would see them if you look at read data in the bam file (preferably the "bamout" that can be generated as documented for HaplotypeCaller).
+
+> Because the DP in the INFO field is unfiltered and the DP in the FORMAT field is filtered, you know none of the reads were filtered out by the engine's built-in read filters.
+
+https://gatk.broadinstitute.org/hc/en-us/articles/360035532252?id=6005
+
+https://gatk.broadinstitute.org/hc/en-us/community/posts/360057830232-Wrong-Calculation-of-DP-AD-AF
+
+https://github.com/broadinstitute/gatk/issues/6067

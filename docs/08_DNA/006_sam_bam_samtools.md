@@ -151,7 +151,7 @@ bam2fastq工具链接：http://www.hudsonalpha.org/gsl/software/bam2fastq.php
  views -c 计算的是alignments数目，而不是reads数目，一条reads可以比对到多个位置
 
 13）提取某个染色体
- view -h  control_1.sort.bam   "chr17:40437407-40486397"  | view -bS - >RNA-seq.bam
+samtools  view -h  control_1.sort.bam   "chr17:40437407-40486397"  | samtools view -bS - >RNA-seq.bam
 
 ```
 

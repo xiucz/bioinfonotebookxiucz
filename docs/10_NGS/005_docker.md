@@ -13,25 +13,33 @@ https://github.com/guoshijiang/-virtual-technology
 
 + ce
 + EE
-## 基础信息
-```
- --version
- version
- info
- ps 查看正在运行的容器
- stop停止正在运行的容器
- start启动容器
- ps -a查看终止状态的容器
- rm -f webserver命令来移除正在运行的容器
- rm $( ps -a -q) 删除所有容器
- images 列出本地镜像
- rmi 删除镜像
- run —name NAMES IMAGE 将镜像IMAGE生成NAMES的容器
- image ls 列出镜像
- search python 寻找镜像
- pull python:3.5 获取镜像
 
- run hello-world 运行镜像
+image 文件生成的容器实例，本身也是一个文件，称为容器文件。也就是说，一旦容器生成，就会同时存在两个文件： image 文件和容器文件。而且关闭容器并不会删除容器文件，只是容器停止运行而已。
+
+## 基础信息
+```bash
+ --version
+docker version
+docker info
+#查看正在运行的容器
+docker ps
+#停止正在运行的容器
+docker stop
+#启动容器
+docker start
+docker ps -a查看终止状态的容器
+docker rm -f webserver命令来移除正在运行的容器
+docker rm $( ps -a -q) 删除所有容器
+docker images 列出本地镜像
+docker rmi 删除镜像
+docker run —name NAMES IMAGE 将镜像IMAGE生成NAMES的容器
+docker image ls 列出镜像
+docker search python 寻找镜像
+docker pull python:3.5 获取镜像
+#运行镜像
+docker run hello-world 
+sudo usermod -aG docker $USER
+
 
 #复制容器内容到物理机
   cp  testIpMap:/testData    / 
@@ -44,8 +52,8 @@ https://github.com/guoshijiang/-virtual-technology
 ## 容器使用
 
 ### 在容器内运行应用程序
-```
-$   run -t -i ubuntu:15.10 /bin/echo "Hello world"
+```bash
+$docker run -t -i ubuntu:15.10 /bin/echo "Hello world"
 
 #:  的二进制执行文件。
 #run: 与前面的组合来运行一个容器。
@@ -56,13 +64,13 @@ $   run -t -i ubuntu:15.10 /bin/echo "Hello world"
 * -i：获得一个交互式的连接，通过获取container的输入
 
 #后台模式启动
- run -d ubuntu:15.10 /bin/sh -c "while true; do echo hello world; sleep 1; done"
+docker run -d ubuntu:15.10 /bin/sh -c "while true; do echo hello world; sleep 1; done"
 # 退出
 我们可以通过运行 exit 命令或者使用 CTRL+D 来退出容器。
 
 # 进入容器
- attach
- exec：推荐大家使用  exec 命令，因为此退出容器终端，不会导致容器的停止。
+docker attach
+docker exec：推荐大家使用  exec 命令，因为此退出容器终端，不会导致容器的停止。
 
 ## 导出和导入容器
   export 1e560fca3906 > ubuntu.tar
@@ -77,6 +85,7 @@ rmi hello-world
 
 https://mp.weixin.qq.com/s?__biz=MzUzMTEwODk0Ng==&mid=2247490244&idx=1&sn=f42a566710fa68ebd92b7d350359314e&chksm=fa46dff9cd3156ef7b4cd7d151cbcfc61518c00a10056ed4377ddd6c50858c7f99fb4eb2d3e7&scene=21#wechat_redirect
 
+`docker container run`  `docker image pull`
 
 ## 
 ```{bash}
@@ -89,7 +98,35 @@ $ docker run -i -t polyactis/accurity /bin/bash
 $ docker run -i -t -v /home/mydata:/mnt polyactis/accurity /bin/bash
 ```
 
+## 其他
+```
+#进入docker的镜像目录。
+cd /var/lib/docker 
+```
+image镜像在哪里
+image文件夹下存放镜像内容
+```
+cd image/overlay2  # 有的是image/aufs  
+cat repositories.json  # 查看镜像仓库内容
+```
+container容器在哪里
+container文件夹下存放容器内容
+```
+cd containers 
+ls -l  # 查看容器列表
+```
+
+https://blog.csdn.net/enthan809882/article/details/104455638
+
 ## 问题故障
 #### mage is being used by stopped container
 
 https://stackoverflow.com/questions/51188657/image-is-being-used-by-stopped-container
+
+#### Got permission denied while trying to connect to the Docker daemon socket at unix:///var/
+```
+usermod -a -G docker zhangbo
+
+service docker restart
+newgrp docker
+```
