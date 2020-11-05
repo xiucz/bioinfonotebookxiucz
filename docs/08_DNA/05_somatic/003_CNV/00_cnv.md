@@ -72,7 +72,21 @@ starts with the raw read counts per 1,000 base window for both normal and tumor 
 
 
 
+## cnv量化
+### tcga
+Numeric focal-level Copy Number Variation (CNV) values were generated with "Masked Copy Number Segment" files from tumor aliquots using GISTIC2, on a project level.
 
+Only protein-coding genes were kept, and their numeric CNV values were further thresholded by a noise cutoff of 0.3:
+
+Genes with focal CNV values smaller than -0.3 are categorized as a "loss" (-1)
+Genes with focal CNV values larger than 0.3 are categorized as a "gain" (+1)
+Genes with focal CNV values between and including -0.3 and 0.3 are categorized as "neutral" (0).
+### cnvkit
+在CNVKIT软件也有：https://cnvkit.readthedocs.io/en/stable/calling.html
+
+In a diploid genome, a single-copy gain in a perfectly pure, homogeneous sample has a copy ratio of 3/2. In log2 scale, this is log2(3/2) = 0.585, and a single-copy loss is log2(1/2) = -1.0.
+### cosmic
+在COSMIC数据库也有说明：https://cancer.sanger.ac.uk/cosmic/help/cnv/overview
 
 ---
 
@@ -145,4 +159,7 @@ https://bioconductor.org/packages/release/bioc/html/CNVtools.html
 
 
 ------
-
+DECIPHER:疾病相关的CNV数据库
+https://decipher.sanger.ac.uk/
+https://cloud.tencent.com/developer/article/1556085
+https://www.sciencedirect.com/science/article/pii/S0140673614617050
