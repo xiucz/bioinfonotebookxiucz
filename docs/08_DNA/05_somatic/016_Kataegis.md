@@ -33,6 +33,20 @@ Kataegis can result from multiple cytosine deaminations catalyzed by the AID/APO
 https://mp.weixin.qq.com/s/_nTV5lbtRBEABW8DJg-YiA
 
 ## SeqKat
- 
+```
+碱基全部大写，只能包含[ATCGN]
+```
+
 ## Mutalisk
 Mutalisk consists of four major functional modules: (i) localized hypermutation analysis, (ii) mutational signature decomposition, (iii) transcriptional strand bias analysis and (iv) epigenome association analysis. 
+
+
+## KataegisPortal
+
+https://github.com/MeichunCai/KataegisPortal
+
+```
+> library(devtools)
+> options(devtools.install.args = c("--no-multiarch", "--no-test-load"))
+> devtools::install_url('https://github.com/MeichunCai/KataegisPortal/files/5060224/KataegisPortal_1.0.3.tar.gz', INSTALL_opts = c("--no-multiarch", "--no-test-load"))
+```

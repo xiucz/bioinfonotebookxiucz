@@ -1,0 +1,1 @@
+OncoKB （Oncology Knowledge Base），是由MSK（Memorial Sloan Kettering）癌症中心维护的全面的精准医疗肿瘤数据库。这个数据库旨在提供一些详细的、基于证据关于somatic突变和结构突变的信息，从而帮助进行治疗决策。数据基于FDA （US Food and Drug Administration ）, NCCN（National Comprehensive Cancer Network ) 的资料以及其他文献，和疾病专家小组的建议对药物反应做证据分类。这个数据库现在每隔2-3个月进行一次更新和补充。现在已经有4932个突变，涉及642个基因，45种肿瘤，89种药物。
