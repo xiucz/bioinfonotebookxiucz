@@ -33,8 +33,12 @@ Kataegis can result from multiple cytosine deaminations catalyzed by the AID/APO
 https://mp.weixin.qq.com/s/_nTV5lbtRBEABW8DJg-YiA
 
 ## SeqKat
+Kataegis is a localized hypermutation occurring when a region is enriched in somatic SNVs. Kataegis can result from multiple cytosine deaminations catalyzed by the AID/APOBEC family of proteins. This package contains functions to detect kataegis from SNVs in BED format. This package reports two scores per kataegic event, a hypermutation score and an APOBEC mediated kataegic score. Yousif, F. et al.; The Origins and Consequences of Localized and Global Somatic Hypermutation; Biorxiv 2018 .
+
+
 ```
-碱基全部大写，只能包含[ATCGN]
+.fa文件，碱基全部大写，只能包含[ATCGN],且去掉">chr*"。
+
 ```
 
 ## Mutalisk

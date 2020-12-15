@@ -56,3 +56,11 @@ negative-sense RNA viruses[J]. eLife, 2015.
 Mosquito-Associated RNA Viruses in Western Australia[J]. Journal of Virology, 2017, 91(17).
 
 https://blog.csdn.net/woodcorpse/article/details/82053830
+
+## 数据库
+Nr：http://mirrors.vbi.vt.edu/mirrors/ftp.ncbi.nih.gov/blast/db/FASTA/nr.gz
+
+Pfam：ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/Pfam32.0/Pfam-A.fasta.gz
+
+Uniprot: ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.fasta.gz
+

@@ -51,3 +51,32 @@ https://gatk.broadinstitute.org/hc/en-us/articles/360035532252?id=6005
 https://gatk.broadinstitute.org/hc/en-us/community/posts/360057830232-Wrong-Calculation-of-DP-AD-AF
 
 https://github.com/broadinstitute/gatk/issues/6067
+
+## Contamination
+This tool borrows from ContEst by Cibulskis et al the idea of estimating contamination from ref reads at hom alt sites. However, ContEst uses a probabilistic model that assumes a diploid genotype with no copy number variation and independent contaminating reads. That is, ContEst assumes that each contaminating read is drawn randomly and independently from a different human. This tool uses a simpler estimate of contamination that relaxes these assumptions. In particular, it works in the presence of copy number variations and with an arbitrary number of contaminating samples. In addition, this tool is designed to work well with no matched normal data. However, one can run GetPileupSummaries on a matched normal bam file and input the result to this tool.
+
+### ContEst
+Three major classes of DNA contamination exist: 
++ **cross-individual**
++ within-individual
++ cross-species
+
+```
+This example will produce an output file which should look like the following:
+
+name    population      population_fit  contamination   confidence_interval_95_width    confidence_interval_95_low      confidence_interval_95_high     sites
+META    CEU     n/a     8.2     0.9     7.7     8.6     733
+
+Here we can see that ContEst found that the file was approximately 8.2 percent contaminated, with a 95% confidence interval from 7.7 to 8.6. 
+```
+结论：
+ContEst produces accurate estimates even with average coverage <5×.
+#### getpileupsummaries
+```
+#<METADATA>SAMPLE=AG945-2
+contig	position	ref_count	alt_count	other_alt_count	allele_frequency
+chr1	17365	3	2	0	0.136
+chr1	17385	8	0	0	0.122
+chr1	69761	0	0	0	0.113
+```
+#This produces a six-column table as shown. The `alt_count` is the count of reads that support the ALT allele in the germline resource. The `allele_frequency` corresponds to that given in the germline resource. Counts for `other_alt_count` refer to reads that support all other alleles.

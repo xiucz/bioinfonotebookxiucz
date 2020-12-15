@@ -307,3 +307,14 @@ Defaults are usually high (250) – can be reduced to speed things up
 A	haplotype	is	a	set	of	gene;c	features	that	tend	to	be	inherited	together	
 In	our	context,	we	are	interested	in	a	set	of	SNPs	that	tend	to	be	inherited	together.		
 Why?	Because	it	will	make	variant	calling	more	robust	
+
+## VQSR
+https://gatk.broadinstitute.org/hc/en-us/articles/360035890411-Calling-variants-on-cohorts-of-samples-using-the-HaplotypeCaller-in-GVCF-mode
+
+### MQRankSum
+
+### 为什么在某些位点没有被计算出来MQRankSum和ReadPosRankSum
+The Rank Sum Test annotations cannot be calculated for sites that are not heterozygous. They need to have a mix of ref and alt reads to be calculated.
+
+The Rank Sum Tests require at least one individual to be heterozygous and have a mix of ref and alt reads. The assumption is in a large cohort, at least one sample will be heterozygous so the annotation can be calculated.
+
