@@ -1,0 +1,1 @@
+/opt/pacbio/smrtlink8/smrtcmds/bin/pbindex subreads.bam

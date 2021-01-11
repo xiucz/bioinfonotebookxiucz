@@ -13,3 +13,20 @@ complex substitutions, SVs, complex rearrangements. Basically anything not a SNP
 id field is relevant when comparing two files with bcftools stats. id will then be 0,1 or 2 and will represent sites unique to the first file, sites unique to the second file and sites common to both.
 
 https://github.com/samtools/bcftools/issues/316
+
+## 过滤
+### bcftools filter
+```
+bcftools view -q 0.01 chr.all.vcf.gz 
+bcftools view -q 0.01:minor chr.all.vcf.gz
+
+```
+```
+bcftools view -e 'INFO/IMPUTED=1' or bcftools view -i 'INFO/IMPUTED=0'
+```
+
+## 注释
+```
+export BCFTOOLS_PLUGINS=/local_data1/MED/programs/zhangbo/bcftools/bcftools-1.9/plugins/
+bcftools +fill-tags my.vcf > out.vcf
+```

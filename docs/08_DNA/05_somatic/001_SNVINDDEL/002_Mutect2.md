@@ -1,3 +1,16 @@
+# Call
+The thresholds used by MuTect2 to consider a variant as being **real and somatic** (leading to the annotation “PASS”)：
++ are by default TLOD > 6.3 and NLOD > 2.2. 
++ For dbSNP variants, a higher NLOD threshold of 5.5 is used
++ For dbSNP and COSMIC database variants, NLOD > 2.2.  
+
+
+# PON
++ Then, variants identified by MuTect2 in at least two normal samples were compiled together into one PoN VCF file.
+
+# MuTect2 filters
+
+
 ##  FILTER and FORMAT
 Filter | Threshold | Key | Explanation | Version
 --- | ---| --- | --- | ---

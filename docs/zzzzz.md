@@ -31,18 +31,7 @@ filter_file7["site_tmp"].apply(lambda x: any([ i in x for i in hotsites]))
 ```
 ### 20200106
 因为VEP对每个转绿本单独进行注释，所以在统计时，任一转录本认为有害即认为该位点有害。
-```
-rs2coordinates
 
-library(biomaRt)
-grch37_snp = useMart(biomart="ENSEMBL_MART_SNP", host="grch37.ensembl.org", path="/biomart/martservice", dataset="hsapiens_snp")
-#snp_ids = c("rs1149222", "rs4148808")
-snp_ids = read.csv("/local_data1/work/zhangbo/tmp/0522/rs2coordinates2.txt", header = T, sep = "\t")
-snp_attributes = c("refsnp_id", "chr_name", "chrom_start") #'ensembl_gene_stable_id'
-snp_locations = getBM(attributes=snp_attributes, filters="snp_filter", values=snp_ids$Location, mart=grch37_snp)
-final_o = merge(snp_locations, snp_ids, by.y = "Location", by.x = "refsnp_id", all.x = TRUE)
-write.table(final_o, "final_o.xls", sep = "\t", quote = F, row.names = F)
-```
 
 ### 20191230
 the default TLOD filtration cutoff is 6.3:This roughly corresponds to a prior probability of 10^(-6.3) of somatic variants at any given site, which is about right for many tumors. Note however that this argument is obsolete as of GATK 4.1.1.

@@ -1,0 +1,1 @@
+>>> P.S. Some people have asked why BBSplit has a lower alignment rate than BBMap. That is because it has a lower default sensitivity, as the original intent was to bin reads using known assemblies. The sensitivity can be raised to be equivalent to BBMap with these flags: "minratio=0.56 minhits=1 maxindel=16000"

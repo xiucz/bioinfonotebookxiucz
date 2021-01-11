@@ -32,7 +32,7 @@ marts <- listMarts(host="www.ensembl.org")
 ensembl <- useMart(host="www.ensembl.org",biomart="ENSEMBL_MART_ENSEMBL")
 listDatasets(ensembl)
 listFilters(ensembl)
-listAttributes(ensembl)
+listAttributes(ensembl) #获取属性
 attributePages(ensembl)
 listDatasets(ensembl)
 ```
@@ -117,11 +117,16 @@ ensembl_75 = useMart(biomart="ENSEMBL_MART_ENSEMBL", host="feb2014.archive.ensem
 
 ## 2.4 获取rs号 对应的坐标位点
 ```
-library(biomaRt)grch37_snp = useMart(biomart="ENSEMBL_MART_SNP", host="grch37.ensembl.org", path="/biomart/martservice", dataset="hsapiens_snp")
+library(biomaRt)
+grch37_snp = useMart(biomart="ENSEMBL_MART_SNP", host="grch37.ensembl.org", path="/biomart/martservice", dataset="hsapiens_snp")
 snp_ids = c("rs1149222", "rs4148808")
+snp_ids = read.csv("rs.txt", header = T, sep = "\t")
 snp_attributes = c("refsnp_id", "chromosome_name", "start_position") #'ensembl_gene_stable_id'
 snp_locations = getBM(attributes=snp_attributes, filters="snp_filter", values=snp_ids, mart=grch37_snp)
+final_o = merge(snp_locations, snp_ids, by.y = "Location", by.x = "refsnp_id", all.x = TRUE)
+write.table(final_o, "final_o.xls", sep = "\t", quote = F, row.names = F)
 ```
+
 #### 
 https://bioinformatics.stackexchange.com/questions/2503/how-to-get-a-list-of-genes-corresponding-to-the-list-of-snps-rs-ids
 
