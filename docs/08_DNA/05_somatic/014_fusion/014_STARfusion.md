@@ -14,3 +14,7 @@ cd GRCh37_v19_CTAT_lib_Feb092018/
 ```
 
 http://note.youdao.com/noteshare?id=365f4e006571dab8d6b4e411eca81e57
+
+## 检出率
+
++ I change the option "--alignSplicedMateMapLminOverLmate" from the default value 0.66 to a lower one

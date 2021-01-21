@@ -1,10 +1,20 @@
+# pre
+![](./pics/202101115.png)
+![](./pics/202101113.png)
+![](./pics/202101114.png)
 # Call
 The thresholds used by MuTect2 to consider a variant as being **real and somatic** (leading to the annotation “PASS”)：
 + are by default TLOD > 6.3 and NLOD > 2.2. 
 + For dbSNP variants, a higher NLOD threshold of 5.5 is used
 + For dbSNP and COSMIC database variants, NLOD > 2.2.  
 
-
+## Active Regions
++ Modified	sta*s*c	threshold	for	soma*c	scenario	uses	LOD	≥	4.0	in	favor	of	
+the	reference	model		
++ Reads	differentially	filtered:	
+  + Tumor	is	strict:	MAPQ	≥	Q20;	discard	discrepant	overlapping	reads	
+  + Normal	is	permissive:	MAPQ	≥	Q0;	keep	alternate	read	from	discrepant	
+overlapping	reads	
 # PON
 + Then, variants identified by MuTect2 in at least two normal samples were compiled together into one PoN VCF file.
 
@@ -69,6 +79,11 @@ https://github.com/broadinstitute/gatk/issues/6067
 This tool borrows from ContEst by Cibulskis et al the idea of estimating contamination from ref reads at hom alt sites. However, ContEst uses a probabilistic model that assumes a diploid genotype with no copy number variation and independent contaminating reads. That is, ContEst assumes that each contaminating read is drawn randomly and independently from a different human. This tool uses a simpler estimate of contamination that relaxes these assumptions. In particular, it works in the presence of copy number variations and with an arbitrary number of contaminating samples. In addition, this tool is designed to work well with no matched normal data. However, one can run GetPileupSummaries on a matched normal bam file and input the result to this tool.
 
 ### ContEst
++ Low	levels	of	cross-sample	contamina*on	is	common	
++ Contaminant	sites	vary	from	patient	homozygous	sites	
+![](./pics/20210111.png)
+![](./pics/202101111.png)
+![](./pics/202101112.png)
 Three major classes of DNA contamination exist: 
 + **cross-individual**
 + within-individual

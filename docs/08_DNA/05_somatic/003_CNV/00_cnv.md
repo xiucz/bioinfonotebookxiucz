@@ -1,4 +1,33 @@
+<!-- TOC -->
+
+- [历史背景](#历史背景)
+- [名词](#名词)
+    - [BAF](#baf)
+    - [LRR](#lrr)
+- [算法](#算法)
+    - [基于深度测序的拷贝数变异的检测算法](#基于深度测序的拷贝数变异的检测算法)
+    - [软件比较](#软件比较)
+    - [coverage](#coverage)
+        - [1. QC](#1-qc)
+        - [2. GC含量校正](#2-gc含量校正)
+    - [segmentation](#segmentation)
+        - [segmentation algorithms](#segmentation-algorithms)
+    - [cnv量化](#cnv量化)
+        - [tcga](#tcga)
+        - [cnvkit](#cnvkit)
+        - [cosmic](#cosmic)
+    - [对于cnv分析的几点思考：](#对于cnv分析的几点思考)
+            - [过滤](#过滤)
+            - [鉴定断裂点](#鉴定断裂点)
+    - [肿瘤拷贝数数据中的异方差校正](#肿瘤拷贝数数据中的异方差校正)
+    - [Aneuploidy非整倍体](#aneuploidy非整倍体)
+    - [General CNV analysis strategy](#general-cnv-analysis-strategy)
+
+<!-- /TOC -->
+
+
 https://rdrr.io/category/biocview/CopyNumberVariation/
+
 
 # 历史背景
 Technologies for CNV Detection
@@ -91,13 +120,7 @@ In a diploid genome, a single-copy gain in a perfectly pure, homogeneous sample 
 ---
 
 
-<!-- TOC -->
-auto- [对于cnv分析的几点思考：](#对于cnv分析的几点思考)
-auto        - [过滤](#过滤)
-auto        - [鉴定断裂点](#鉴定断裂点)
-auto- [肿瘤拷贝数数据中的异方差校正](#肿瘤拷贝数数据中的异方差校正)
-auto- [Aneuploidy非整倍体](#aneuploidy非整倍体)autoauto
-<!-- /TOC -->
+<!-- TOC -->autoauto- [历史背景](#历史背景)auto- [名词](#名词)auto    - [BAF](#baf)auto    - [LRR](#lrr)auto- [算法](#算法)auto    - [基于深度测序的拷贝数变异的检测算法](#基于深度测序的拷贝数变异的检测算法)auto    - [软件比较](#软件比较)auto    - [coverage](#coverage)auto        - [1. QC](#1-qc)auto        - [2. GC含量校正](#2-gc含量校正)auto    - [segmentation](#segmentation)auto        - [segmentation algorithms](#segmentation-algorithms)auto    - [cnv量化](#cnv量化)auto        - [tcga](#tcga)auto        - [cnvkit](#cnvkit)auto        - [cosmic](#cosmic)auto    - [对于cnv分析的几点思考：](#对于cnv分析的几点思考)auto            - [过滤](#过滤)auto            - [鉴定断裂点](#鉴定断裂点)auto    - [肿瘤拷贝数数据中的异方差校正](#肿瘤拷贝数数据中的异方差校正)auto    - [Aneuploidy非整倍体](#aneuploidy非整倍体)auto    - [General CNV analysis strategy](#general-cnv-analysis-strategy)autoauto<!-- /TOC -->
 
 
 + Copy number alterations/aberrations (CNAs)

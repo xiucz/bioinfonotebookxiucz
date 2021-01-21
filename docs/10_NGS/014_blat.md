@@ -12,5 +12,7 @@ blat chr11.fa human/test.fa -out=pslx test.pslx #输出含序列
 blat chr11.fa human/test.fa -out=blast test.blast #输出格式同NABI的blast格式
 #并行处理多个jobs
 time parallel blat chr{}.fa human/human.fa test_{}.psl ::: {1..22} X Y M
+#
+blat database query -out=blast8 output.psl
 ```
 

@@ -130,3 +130,48 @@ usermod -a -G docker zhangbo
 service docker restart
 newgrp docker
 ```
+
+
+#### 权限问题
+https://padeoe.com/docker-volume-file-permission-problem/
+譬如执行如下命令创建一个容器，挂载当前目录到容器内，并在容器内向主机当前目录创建 tmp.txt：
+```
+$ docker run --rm \
+    -v "$PWD":/project \
+    debian \
+    bash -c "touch /project/tmp.txt"
+$ ls -l tmp.txt
+-rw-r--r-- 1 root root 0 Sep 28 01:55 tmp.txt
+```
+主机当前目录出现了容器内创建的 tmp.txt，但是其权限、用户和组均是 root，其他用户不可写。
+
+使用 user 参数指定容器运行期间的用户常见解决方法是可以通过 Docker 提供的 User 命令、--user 参数来指定容器内部的用户和组的 id，譬如：
+```
+$ docker run --rm \
+    --user=$UID:$(id -g $USER) \
+    -v "$PWD":/project \
+    debian \
+    bash -c "touch /project/tmp.txt"
+$ ls -l tmp.txt
+-rw-r--r-- 1 current_user current_user 0 Sep 28 02:09 tmp.txt
+```
+可以看到输出，current_user 处会显示主机当前用户的名字，所以解决了主机用户对挂载的卷没有权限的问题。
+
+**user参数的缺陷**使用 user 参数有一些缺陷，如果你进入容器内部的 terminal，会显示如下内容：
+```
+$ docker run --rm \
+    -it \
+    --user=$UID:$(id -g $USER) \
+    -v "$PWD":/project \
+    debian \
+    bash -c "touch /project/tmp.txt && bash"
+I have no name!@6cc07662a201:/$    
+```
+bash 的用户名会显示 I have no name!，这是因为我们通过 --user 参数指定了容器内部的用户 id，但该 id 不存在于容器内的 /etc/passwd 文件中。
+
+除此之外，使用 user 参数仍然存在权限问题：
+
+> 除了绑定挂载的主机路径之外的所有路径，对于容器内部的用户都没有写权限。
+
+
+

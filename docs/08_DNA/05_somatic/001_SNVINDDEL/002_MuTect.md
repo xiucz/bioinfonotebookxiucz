@@ -11,6 +11,6 @@ https://gatkforums.broadinstitute.org/gatk/discussion/2593/how-does-use-of-cosmi
 + str_contraction: filters out variants from short tandem repeat regions.
 + alt_allele_in_normal: filters out variants if enough evidence is shown of its presence in the normal sample (NLOD threshold > 2.0).
 + multi_event_alt_allele_in_normal: filters out a variant when multiple events are detected at the same position in the matched-normal sample. 
-+ germline_risk: filters out variants that show sufficient evidence of being germline based on dbSNP, COSMIC and the matched-normal sample (NLOD value). 
++ germline_risk: filters out variants that show sufficient evidence of being germline based on dbSNP, COSMIC and the matched-normal sample (NLOD value)（If	a	variant	is	in	dbSNP	but	not	in	COSMIC,	reject		）. 
 + panel_of_normals: filters out variants present in at least two samples of the panel of normals.
 
