@@ -1,0 +1,1 @@
+https://jianzuoyi.github.io/post/2020-11-16-local-ncbi-db/

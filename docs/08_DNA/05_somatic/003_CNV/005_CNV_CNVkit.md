@@ -1,4 +1,26 @@
-[toc]
+<!-- TOC -->
+
+- [Install](#install)
+- [Concept](#concept)
+  - [.](#)
+    - [target](#target)
+      - [Bin size and resolution](#bin-size-and-resolution)
+      - [Labeling target regions](#labeling-target-regions)
+    - [access](#access)
+    - [bed](#bed)
+  - [output](#output)
+    - [](#-1)
+  - [cnvkit](#cnvkit)
+  - [targeted amplicon sequencing](#targeted-amplicon-sequencing)
+  - [In practice we see good results with an average of 200–300 reads per bin。](#in-practice-we-see-good-results-with-an-average-of-200300-reads-per-bin)
+  - [http://born2run.cn/2018/05/17/cnvkit-information/](#httpborn2runcn20180517cnvkit-information)
+    - [weight值在cns文件中意思](#weight值在cns文件中意思)
+    - [](#-2)
+    - [sex chromosome](#sex-chromosome)
+  - [过滤方法](#过滤方法)
+
+<!-- /TOC -->
+
 Github地址：https://github.com/etal/cnvkit
 
 官方教程地址：https://cnvkit.readthedocs.io/en/stable/index.html
@@ -7,7 +29,7 @@ cnvkit-0.9.4a0
 
 
 #
-# 1. Install
+# Install
 github:
 https://github.com/etal/cnvkit
 
@@ -33,10 +55,10 @@ Solving environment: done
 
 基因注释文件，如果是wgs，则用refFlat.txt；如果是wes之类的则用带注释形式的bed文件
 
-# 2. Concept
+# Concept
 
 
-## 2.1.
+## .
 
 
 
@@ -147,7 +169,7 @@ perl -ne 'chomp; @l=split("\t",$_); $size += $l[2]-$l[1]; print "$size\n"' SeqCa
 + **.cnr** means normalized copy ratios. These are processed test samples, already normalized to the reference.
 + **.cns** means copy number segments. These are the result of segmenting .cnr files, essentially where bins with similar estimated copy number are joined together.
 
-### 
+###  
  --method wgs 选项
  
  cnvkit
@@ -158,14 +180,19 @@ targeted amplicon sequencing
 --------------------------------------------------------------------------------
 **target BED** vs **bait BED**: 
 CNVkit uses the bait BED file (provided by the vendor of your capture kit)
-For hybrid capture, ==the targeted regions (or “primary targets”)== are the genomic regions your capture kit attempts to ensure are well covered, e.g. exons of genes of interest.
+For hybrid capture, **the targeted regions (or “primary targets”)** are the genomic regions your capture kit attempts to ensure are well covered, e.g. exons of genes of interest.
 
-==The baited regions (or “capture targets”) == are the genomic regions your kit actually captures, usually including about 50bp flanking either side of each target. Give CNVkit the bait/capture BED file, not the primary targets.Give CNVkit the bait/capture BED file, not the primary targets.
-
+**The baited regions (or “capture targets”)** are the genomic regions your kit actually captures, usually including about 50bp flanking either side of each target. Give CNVkit the bait/capture BED file, not the primary targets.Give CNVkit the bait/capture BED file, not the primary targets.
+|bed1|bed2|
+|---|---|
+|target BED|  bait BED|
+|primary targets| capture targets|
+｜-｜probes.bed｜
+|位点设计的时候考虑的|探针设计的时候考虑的（实际捕获到的）|
 Sequencing protocol: 
-hybridization capture ('hybrid'),
-targeted amplicon sequencing ('amplicon'),
-whole genome sequencing ('wgs')
++ hybridization capture ('hybrid'),
++ targeted amplicon sequencing ('amplicon'),
++ whole genome sequencing ('wgs')
 
 In practice we see good results with an average of 200–300 reads per bin。
 --------------------------------------------------------------------------------
@@ -200,7 +227,7 @@ The weight value doesn't correspond directly to a p-value. It's either the sum (
 If you want to quantify the reliability of a segment, try the segmetrics command, in particular the --ci (confidence interval) or --sem (standard error) options.
 https://www.biostars.org/p/266688/
 
-### 
+###  
 + segmented log2 ratios 
 + copy-neutral
 +  single-copy losses (1) and gains (3), a few multi-copy gains (4) and homozygous deletions (0

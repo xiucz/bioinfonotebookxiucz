@@ -245,3 +245,19 @@ pd.set_option('display.max_rows', None)
 pd.set_option('max_colwidth',100)
 
 ```
+
+## Collapse two rows into 1 in Pandas
+
+```
+>>> df1
+                                   #Query_id  Query_length  Query_start  Query_end
+0  m64033_201215_092254/132081/150862_170300         19438         5840      14430
+1  m64033_201215_092254/132081/150862_170300         19438          128       5786
+2  m64033_201215_092254/132081/150862_170300         19438        14477      19433
+3  m64033_201215_092254/132081/150862_170300         19438            1        396
+4  m64033_201215_092254/132081/150862_170300         19438         5840      14430
+
+print df.groupby('value')['tempx'].apply(' '.join).reset_index()
+
+>>> df1.groupby(["#Query_id"])['Query_start'].agg(list).reset_index()
+```

@@ -14,7 +14,14 @@ cd GRCh37_v19_CTAT_lib_Feb092018/
 ```
 
 http://note.youdao.com/noteshare?id=365f4e006571dab8d6b4e411eca81e57
+## 其工作原理分为三步：
+
++ ①先将reads通过STAR比对到参考基因组，筛选出split和discordant reads作为候选的融合基因序列；
++ ②将候选融合基因序列与参考基因序列进行比对，根据overlaps预测出融合基因；
++ ③对预测结果做过滤，去除假阳性结果。
 
 ## 检出率
 
 + I change the option "--alignSplicedMateMapLminOverLmate" from the default value 0.66 to a lower one
+
+## 设计引物来对该融合转录本进行验证
